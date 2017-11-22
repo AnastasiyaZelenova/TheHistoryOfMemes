@@ -9,5 +9,6 @@ namespace ClassLibraryOfMemes
     public class Class1
     {
         int ytyt = 0;
+        int adel;
     }
 }
