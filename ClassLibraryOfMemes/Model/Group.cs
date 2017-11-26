@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace ClassLibraryOfMemes
 {
-    class Group
+    public class Group
     {
+        public string Name { get; set; }
+        public string Url { get; set; }
+        public List<Meme> Memes { get; set; }
     }
 }
