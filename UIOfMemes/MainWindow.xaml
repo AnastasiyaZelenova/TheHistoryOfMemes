@@ -6,12 +6,13 @@
         xmlns:local="clr-namespace:UIOfMemes"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800"  WindowStartupLocation="CenterScreen" >
-    <Window.Background>
+    
+    <!--<Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
             <GradientStop Color="#FF151637" Offset="1"/>
             <GradientStop Color="#8CA24545" Offset="0.505"/>
         </LinearGradientBrush>
-    </Window.Background>
+    </Window.Background>-->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -22,7 +23,7 @@
             <RowDefinition Height="3*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-            
+       
             <!--<Rectangle Grid.RowSpan ="3" Grid.ColumnSpan="2">-->
             <!--<Rectangle.Fill>
                 <LinearGradientBrush>
@@ -31,6 +32,7 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>-->
         <!--</Rectangle>-->
+        <Image Grid.ColumnSpan="2" Grid.RowSpan="3" Source="C:\Users\Анастасия\Downloads\meme.jpg"></Image>
         <ListBox Grid.RowSpan="3" Margin="10 50" ></ListBox>
         <ListBox Grid.Column="1" Grid.Row="1" Margin="15 30">
             <ListBox.ItemsPanel>
@@ -40,7 +42,7 @@
             </ListBox.ItemsPanel>
         </ListBox>
         <StackPanel Orientation="Horizontal" Margin="210 30" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top">
-            <Button Content="Add" MinHeight="50" MinWidth="70" ></Button>
+            <Button Name="buttonAddMeme" Content="Add" MinHeight="50" MinWidth="70" Click="buttonAddMeme_Click" ></Button>
             <Button Content="Rating" MinHeight="50" MinWidth="70" ></Button>
         </StackPanel>
         <DockPanel Grid.Column="1" Margin="50 50 50 0" >

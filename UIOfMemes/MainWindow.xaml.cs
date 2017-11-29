@@ -25,5 +25,11 @@ namespace UIOfMemes
         {
             InitializeComponent();
         }
+
+        private void buttonAddMeme_Click(object sender, RoutedEventArgs e)
+        {
+            AddMemeWindow addMemeWindow = new AddMemeWindow();
+            addMemeWindow.Show();
+        }
     }
 }
