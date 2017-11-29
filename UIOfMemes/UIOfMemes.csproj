@@ -127,5 +127,8 @@
   <ItemGroup>
     <Resource Include="images\TheHistoryOfMemes.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\background.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

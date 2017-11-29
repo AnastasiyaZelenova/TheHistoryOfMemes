@@ -32,7 +32,7 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>-->
         <!--</Rectangle>-->
-        <Image Grid.ColumnSpan="2" Grid.RowSpan="3" Source="C:\Users\Анастасия\Downloads\meme.jpg"></Image>
+        <Image Grid.ColumnSpan="2" Grid.RowSpan="3" Source="/images/background.jpg"></Image>
         <ListBox Grid.RowSpan="3" Margin="10 50" ></ListBox>
         <ListBox Grid.Column="1" Grid.Row="1" Margin="15 30">
             <ListBox.ItemsPanel>
