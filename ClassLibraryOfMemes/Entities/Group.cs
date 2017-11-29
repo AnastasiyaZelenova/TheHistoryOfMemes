@@ -8,5 +8,6 @@ namespace ClassLibraryOfMemes
 {
     class Group
     {
+     
     }
 }
