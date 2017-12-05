@@ -21,7 +21,7 @@ namespace UIOfMemes
     public partial class AddMemeWindow : Window
     {
         
-
+        
         public AddMemeWindow()
         {
             InitializeComponent();
