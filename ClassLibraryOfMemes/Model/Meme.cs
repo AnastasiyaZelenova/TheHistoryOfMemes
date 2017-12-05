@@ -22,6 +22,8 @@ namespace ClassLibraryOfMemes
 
         public List<Group> Groups { get; set; }
 
+        public int Likes { get; set; }
+
         public Meme()
         {
 
