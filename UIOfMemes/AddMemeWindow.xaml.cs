@@ -11,7 +11,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using ClassLibraryOfMemes;
 
 namespace UIOfMemes
 {
@@ -20,9 +20,13 @@ namespace UIOfMemes
     /// </summary>
     public partial class AddMemeWindow : Window
     {
+        
+
         public AddMemeWindow()
         {
             InitializeComponent();
+
+           
             
         }
 
@@ -62,6 +66,8 @@ namespace UIOfMemes
                     encoder.Save(fs);
                 }
             }
+
         }
+     
     }
 }

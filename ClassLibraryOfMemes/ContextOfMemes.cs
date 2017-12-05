@@ -17,5 +17,9 @@ namespace ClassLibraryOfMemes
         {
 
         }
+        static ContextOfMemes()
+        {
+            Database.SetInitializer(new ContextInitializer());
+        }
     }
 }

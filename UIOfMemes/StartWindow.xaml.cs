@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibraryOfMemes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,7 @@ namespace UIOfMemes
     public partial class StartWindow : Window
     {
         DispatcherTimer dtClockTime = new DispatcherTimer();
-
+        Repository repository;
         public StartWindow()
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace UIOfMemes
         private void windowClosed(object sender, EventArgs e)
         {
             //Application.Current.MainWindow.Hide();
-            MainWindow mainWindow = new MainWindow();
+            MainWindow mainWindow = new MainWindow(repository);
             mainWindow.Show();
             this.Close();
             dtClockTime.Stop();

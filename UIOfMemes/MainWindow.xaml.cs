@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibraryOfMemes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,9 +22,13 @@ namespace UIOfMemes
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        Repository repository;
+        public MainWindow(Repository repository)
         {
             InitializeComponent();
+            this.repository = repository;
+            
+
         }
 
         private void buttonAddMeme_Click(object sender, RoutedEventArgs e)

@@ -64,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddMeme.cs" />
     <Compile Include="AddMemeWindow.xaml.cs">
       <DependentUpon>AddMemeWindow.xaml</DependentUpon>
     </Compile>

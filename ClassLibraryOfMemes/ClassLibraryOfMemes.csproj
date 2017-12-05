@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContextInitializer.cs" />
     <Compile Include="ContextOfMemes.cs" />
     <Compile Include="Migrations\201711291513165_Initial.cs" />
     <Compile Include="Migrations\201711291513165_Initial.Designer.cs">
