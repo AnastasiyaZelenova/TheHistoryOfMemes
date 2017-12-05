@@ -8,6 +8,5 @@ namespace ClassLibraryOfMemes
 {
     class Repository
     {
-
     }
 }
