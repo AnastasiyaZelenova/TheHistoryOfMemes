@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryOfMemes", "ClassLibraryOfMemes\ClassLibraryOfMemes.csproj", "{8BB2DE33-95B0-405D-858B-FDCA8EBC4C11}"
 EndProject
@@ -26,6 +26,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {49C50827-00B3-4961-B94A-BF4454A150A1}
+		SolutionGuid = {EAAC0D2E-49F7-4F61-B8FB-7F93EDE0B958}
 	EndGlobalSection
 EndGlobal
