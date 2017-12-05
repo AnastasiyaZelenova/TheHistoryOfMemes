@@ -23,6 +23,7 @@ namespace UIOfMemes
         public AddMemeWindow()
         {
             InitializeComponent();
+            
         }
 
         private void buttonClear_Click(object sender, RoutedEventArgs e)

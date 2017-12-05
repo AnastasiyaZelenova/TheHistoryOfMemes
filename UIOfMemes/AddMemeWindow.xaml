@@ -14,8 +14,15 @@
         </Grid.ColumnDefinitions>
         <InkCanvas Name="inkCanvasPaint"  />
         <StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="10" Grid.Column="1">
-            <Button Name="buttonClear" Content="Clear" FontSize="30" MinHeight="50" MinWidth="70" Click="buttonClear_Click" ></Button>
-            <Button Name="buttonSave" Content="Save" FontSize="30" MinHeight="50" MinWidth="70" Click="buttonSave_Click" ></Button>
+            <Button Name="buttonClear" Content="Clear" FontSize="30" MinHeight="40" MinWidth="30" Margin="10 30" Click="buttonClear_Click" ></Button>
+            <Button Name="buttonSave" Content="Save" FontSize="30" MinHeight="40" MinWidth="30" Margin="10 0" Click="buttonSave_Click" ></Button>
+            <TextBlock Text="Name:" FontSize="23" Margin="10, 20, 0, 0" FontWeight="Bold" ></TextBlock>
+            <TextBox Name="memeName" Height="23" Margin="10 0"></TextBox>
+            <TextBlock Text="Description:" FontSize="23" Margin="10,20,0,0" FontWeight="Bold" ></TextBlock>
+            <TextBox  Name="memeDescription" Height="23" Margin="10 0"></TextBox>
+            <TextBlock Text="Year:" FontSize="23" Margin="10,20,0,0" FontWeight="Bold" ></TextBlock>
+            <TextBox Name="memeYear" Height="23" Margin="10 0"></TextBox>
+            <ComboBox Name="comboBoxGroup" DisplayMemberPath="Name" Margin="10 20"></ComboBox>
         </StackPanel>
         
 
