@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
 using System.IO;
 using System.Linq;
+using System.Drawing;
 using System.Text;
 using System.Threading.Tasks;
-using System.Drawing;
 
 
 namespace ClassLibraryOfMemes
@@ -54,7 +55,7 @@ namespace ClassLibraryOfMemes
                 Context.SaveChanges();
                 GroupAdded?.Invoke(group);
             }
-            catch(Exception)
+            catch (Exception)
             {
                 throw new Exception("Error during editing group in database.");
             }
@@ -118,4 +119,5 @@ namespace ClassLibraryOfMemes
             }
         }
     }
-    }
+}
+
