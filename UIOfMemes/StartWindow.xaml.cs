@@ -22,7 +22,7 @@ namespace UIOfMemes
     public partial class StartWindow : Window
     {
         DispatcherTimer dtClockTime = new DispatcherTimer();
-        Repository repository;
+        Repository repository = new Repository();
         public StartWindow()
         {
             InitializeComponent();

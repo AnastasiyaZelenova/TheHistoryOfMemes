@@ -12,7 +12,7 @@ namespace ClassLibraryOfMemes
         protected override void Seed(ContextOfMemes context)
         {
             base.Seed(context);
-            Meme m1 = 
+            Meme m1 = new Meme();
         }
     }
 }

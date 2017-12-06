@@ -26,6 +26,7 @@ namespace ClassLibraryOfMemes.Migrations
                         Description = c.String(),
                         Year = c.Int(nullable: false),
                         Image = c.Binary(storeType: "image"),
+                        Likes = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
