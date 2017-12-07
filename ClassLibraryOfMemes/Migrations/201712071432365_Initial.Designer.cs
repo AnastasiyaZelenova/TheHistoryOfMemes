@@ -13,7 +13,7 @@ namespace ClassLibraryOfMemes.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201712051521454_Initial"; }
+            get { return "201712071432365_Initial"; }
         }
         
         string IMigrationMetadata.Source

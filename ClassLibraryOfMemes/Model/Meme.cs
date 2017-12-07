@@ -16,8 +16,7 @@ namespace ClassLibraryOfMemes
 
         [Range(1000,2017)]
         public int Year { get; set; }
-
-        [Column(TypeName = "image")]
+        
         public byte[] Image { get; set; }
 
         public List<Group> Groups { get; set; }
@@ -26,7 +25,7 @@ namespace ClassLibraryOfMemes
 
         public Meme()
         {
-
+            
         }
     }
 }

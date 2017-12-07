@@ -48,11 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContextInitializer.cs" />
     <Compile Include="ContextOfMemes.cs" />
-    <Compile Include="Migrations\201712051521454_Initial.cs" />
-    <Compile Include="Migrations\201712051521454_Initial.Designer.cs">
-      <DependentUpon>201712051521454_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201712071432365_Initial.cs" />
+    <Compile Include="Migrations\201712071432365_Initial.Designer.cs">
+      <DependentUpon>201712071432365_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Group.cs" />
@@ -65,8 +64,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712051521454_Initial.resx">
-      <DependentUpon>201712051521454_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712071432365_Initial.resx">
+      <DependentUpon>201712071432365_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
