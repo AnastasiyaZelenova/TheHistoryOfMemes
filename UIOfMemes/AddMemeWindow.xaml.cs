@@ -20,19 +20,14 @@ namespace UIOfMemes
     /// </summary>
     public partial class AddMemeWindow : Window
     {
-        
-        
         public AddMemeWindow()
         {
             InitializeComponent();
-
-           
-            
         }
 
         private void buttonClear_Click(object sender, RoutedEventArgs e)
         {
-            this.inkCanvasPaint.Strokes.Clear();
+            inkCanvasPaint.Strokes.Clear();
         }
 
         private void buttonSave_Click(object sender, RoutedEventArgs e)

@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using ClassLibraryOfMemes;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -30,8 +29,6 @@ namespace UIOfMemes
         {
             InitializeComponent();
             this.repository = repository;
-            
-
         }
 
         private void buttonAddMeme_Click(object sender, RoutedEventArgs e)
