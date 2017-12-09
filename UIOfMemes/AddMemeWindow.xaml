@@ -5,26 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIOfMemes"
         mc:Ignorable="d"
-        Title="AddMemeWindow" Height="600" Width="800">
+        Title="AddMemeWindow" Height="600" Width="800" WindowStartupLocation="CenterScreen" >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2.5*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
-
         </Grid.ColumnDefinitions>
         <InkCanvas Name="inkCanvasPaint"  />
         <StackPanel Orientation="Vertical" VerticalAlignment="Top"  Grid.Column="1" >
-            <Button Name="buttonClear" Content="Clear" FontSize="30" MinHeight="40" MinWidth="30" Margin="10 30" Click="buttonClear_Click" ></Button>
-            <Button Name="buttonSave" Content="Save" FontSize="30" MinHeight="40" MinWidth="30" Margin="10 0" Click="buttonSave_Click" ></Button>
-            <TextBlock Text="Name:" FontSize="23" Margin="10, 20, 0, 0" FontWeight="Bold" ></TextBlock>
+            <DockPanel Margin="30 30 30 10" >
+                <Button Name="buttonClear" Content="Clear" FontSize="30" MinHeight="40" MinWidth="50" Margin="5 0" Click="buttonClear_Click" ></Button>
+                <Button Name="buttonSave" Content="Save" FontSize="30" MinHeight="40" MinWidth="30" Margin="5 0" Click="buttonSave_Click" ></Button>
+            </DockPanel>
+            <Slider Name="sldGreen" Background="Green" Minimum="0" Maximum="255" Margin="10 5" ValueChanged="sldColor_ValueChanged"/>
+            <Slider Name="sldRed" Background="Red" Minimum="0" Maximum="255" Margin="10 5" ValueChanged="sldColor_ValueChanged"/>
+            <Slider Name="sldBlue" Background="Blue" Minimum="0" Maximum="255" Margin="10 5" ValueChanged="sldColor_ValueChanged"/>
+            <Label  x:Name="lbl1" Content="Chosen color" HorizontalAlignment="Center" ></Label>
+            <TextBlock Text="Name:" FontSize="23" Margin="10, 10, 0, 0" FontWeight="Bold" ></TextBlock>
             <TextBox Name="memeName" Height="23" Margin="10 0"></TextBox>
             <TextBlock Text="Description:" FontSize="23" Margin="10,20,0,0" FontWeight="Bold" ></TextBlock>
             <RichTextBox  Name="memeDescription" Height="103" Margin="10,0" ></RichTextBox>
             <TextBlock Text="Year:" FontSize="23" Margin="10,20,0,0" FontWeight="Bold" ></TextBlock>
             <TextBox Name="memeYear" Height="23" Margin="10 0"></TextBox>
-            <ComboBox Name="comboBoxGroup" DisplayMemberPath="Name" Margin="10 20"></ComboBox>
         </StackPanel>
-
-
     </Grid>
 </Window>

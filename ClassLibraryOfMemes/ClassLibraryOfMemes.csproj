@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColorRGB.cs" />
     <Compile Include="ContextOfMemes.cs" />
     <Compile Include="Migrations\201712071432365_Initial.cs" />
     <Compile Include="Migrations\201712071432365_Initial.Designer.cs">
