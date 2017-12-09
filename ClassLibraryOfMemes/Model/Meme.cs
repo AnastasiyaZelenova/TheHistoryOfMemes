@@ -13,19 +13,14 @@ namespace ClassLibraryOfMemes
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-
         [Range(1000,2017)]
         public int Year { get; set; }
-        
         public byte[] Image { get; set; }
-
-        public List<Group> Groups { get; set; }
-
         public int Likes { get; set; }
 
         public Meme()
         {
-            
+
         }
     }
 }
