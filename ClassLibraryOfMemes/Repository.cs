@@ -6,7 +6,10 @@ using System.Linq;
 using System.Drawing;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Data.SqlClient;
+using System.Data;
+using System.Configuration;
+using System.Reflection;
 
 namespace ClassLibraryOfMemes
 {
@@ -48,7 +51,7 @@ namespace ClassLibraryOfMemes
                 {
                     var memetoedit = context.Memes.ToList().Find(m => m.Id == editedmeme.Id);
                     memetoedit.Description = editedmeme.Description;
-                    memetoedit.Groups = editedmeme.Groups;
+                    //memetoedit.Groups = editedmeme.Groups;
                     context.SaveChanges();
                 }
                 catch (Exception)
@@ -140,6 +143,60 @@ namespace ClassLibraryOfMemes
             {
                 bmp.Save(ms, bmp.RawFormat);
                 return ms.ToArray();
+            }
+        }
+        public void SaveImageToDatabase(Meme meme)
+        {
+            string conStr = ConfigurationManager.ConnectionStrings["localsql"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(conStr))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand
+                {
+                    Connection = connection,
+                    CommandText = @"INSERT INTO Memes VALUES (@Name, @Description, @Year, @Image, @Likes)"
+                };
+                command.Parameters.Add("@Name", SqlDbType.NVarChar);
+                command.Parameters.Add("@Description", SqlDbType.NVarChar);
+                command.Parameters.Add("@Year", SqlDbType.Int);
+                command.Parameters.Add("@Image", SqlDbType.Image, 1000000);
+                command.Parameters.Add("@Likes", SqlDbType.Int);
+
+                var appDir = AppDomain.CurrentDomain.BaseDirectory;
+                var relativePath = "../../Memes/" + meme.Name + ".jpg";
+                var filename = Path.Combine(appDir, relativePath);
+                byte[] image;
+                using (FileStream fs = new FileStream(filename, FileMode.Open))
+                {
+                    image = new byte[fs.Length];
+                    fs.Read(image, 0, image.Length);
+                }
+                command.Parameters["@Name"].Value = meme.Name;
+                command.Parameters["@Description"].Value = meme.Description;
+                command.Parameters["@Year"].Value = meme.Year;
+                command.Parameters["@Image"].Value = image;
+                command.Parameters["@Likes"].Value = meme.Likes;
+
+                command.ExecuteNonQuery();
+            }
+        
+        }
+
+        public void ReadImageFromDatabase(Meme meme)
+        {
+            string conStr = ConfigurationManager.ConnectionStrings["localsql"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(conStr))
+            {
+                connection.Open();
+                string sql = "SELECT * FROM Memes";
+                SqlCommand command = new SqlCommand(sql, connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    byte[] image = (byte[])reader.GetValue(5);
+                    meme.Image = image;
+                }
             }
         }
     }

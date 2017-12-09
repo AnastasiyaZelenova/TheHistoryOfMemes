@@ -38,6 +38,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
@@ -53,6 +54,10 @@
     <Compile Include="Migrations\201712071432365_Initial.Designer.cs">
       <DependentUpon>201712071432365_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712091436531_ConnectionRemoved.cs" />
+    <Compile Include="Migrations\201712091436531_ConnectionRemoved.Designer.cs">
+      <DependentUpon>201712091436531_ConnectionRemoved.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Group.cs" />
     <Compile Include="Model\Meme.cs" />
@@ -67,6 +72,12 @@
     <EmbeddedResource Include="Migrations\201712071432365_Initial.resx">
       <DependentUpon>201712071432365_Initial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712091436531_ConnectionRemoved.resx">
+      <DependentUpon>201712091436531_ConnectionRemoved.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Memes\Me Gusta.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
