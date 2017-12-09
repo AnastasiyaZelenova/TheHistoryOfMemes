@@ -23,6 +23,13 @@ namespace UIOfMemes
         public AddMemeWindow()
         {
             InitializeComponent();
+            mcolor = new ColorRGB
+            {
+                red = 0,
+                green = 0,
+                blue = 0
+            };
+            lbl1.Background = new SolidColorBrush(Color.FromRgb(mcolor.red, mcolor.green, mcolor.blue));
         }
 
         private void buttonClear_Click(object sender, RoutedEventArgs e)
@@ -61,8 +68,34 @@ namespace UIOfMemes
                     encoder.Save(fs);
                 }
             }
-
         }
-     
+
+        private void sldColor_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            var slider = sender as Slider;
+            string crlName = slider.Name; //Определяем имя контрола, который покрутили
+            double value = slider.Value; // Получаем значение контрола
+                                         //В зависимости от выбранного контрола, меняем ту или иную компоненту и переводим ее в тип byte
+            if (crlName.Equals("sldRed"))
+            {
+                mcolor.red = Convert.ToByte(value);
+            }
+            if (crlName.Equals("sldGreen"))
+            {
+                mcolor.green = Convert.ToByte(value);
+            }
+            if (crlName.Equals("sldBlue"))
+            {
+                mcolor.blue = Convert.ToByte(value);
+            }
+            //Задаем значение переменной класса clr 
+            clr = Color.FromRgb(mcolor.red, mcolor.green, mcolor.blue);
+            //Устанавливаем фон для контрола Label 
+            lbl1.Background = new SolidColorBrush(Color.FromRgb(mcolor.red, mcolor.green, mcolor.blue));
+            // Задаем цвет кисти для контрола InkCanvas
+            inkCanvasPaint.DefaultDrawingAttributes.Color = clr;
+        }
+        public ColorRGB mcolor { get; set; }
+        public Color clr { get; set; }
     }
 }
