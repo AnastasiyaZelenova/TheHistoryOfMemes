@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIOfMemes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800"  WindowStartupLocation="CenterScreen" >
+        Title="MainWindow" Height="600" Width="800"  WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -17,7 +17,7 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Image Grid.ColumnSpan="2" Grid.RowSpan="3" Source="/images/background.jpg"></Image>
-        <ListBox Grid.RowSpan="3" Margin="10 50" ></ListBox>
+        <ListBox Name="listBoxGroups" ItemsSource="{Binding}" DisplayMemberPath="Name"  Grid.RowSpan="3" Margin="10 50" ></ListBox>
         <ListBox x:Name="ListBoxOfMemes" Grid.Column="1" Grid.Row="1" Margin="15 30">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UIOfMemes"
         mc:Ignorable="d"
         Title="AddMemeWindow" Height="600" Width="800" WindowStartupLocation="CenterScreen" >
-    <Grid>
+    <Grid Background="AliceBlue">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2.5*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
