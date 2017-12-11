@@ -40,7 +40,6 @@ namespace UIOfMemes
         private void buttonSave_Click(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
-            dlg.Title = "images";
             dlg.FileName = "savedimage"; // Default file name
             dlg.DefaultExt = ".jpg"; // Default file extension
             dlg.Filter = "Image (.jpg)|*.jpg"; // Filter files by extension

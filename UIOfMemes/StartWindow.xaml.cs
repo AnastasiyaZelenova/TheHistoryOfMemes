@@ -33,9 +33,11 @@ namespace UIOfMemes
         private void windowClosed(object sender, EventArgs e)
         {
             //Application.Current.MainWindow.Hide();
-            MainWindow mainWindow = new MainWindow(repository);
-            mainWindow.Show();
-            this.Close();
+            //MainWindow mainWindow = new MainWindow(repository);
+            //mainWindow.Show();
+            PasswordWindow passwordWindow = new PasswordWindow();
+            passwordWindow.Show();
+            Close();
             dtClockTime.Stop();
         }
     }
