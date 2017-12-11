@@ -180,6 +180,25 @@ namespace ClassLibraryOfMemes
                 }
             }
         }
+        public void InfoShow()
+        {
+            using (var context = new ContextOfMemes())
+            {
+                foreach (var meme in context.Memes)
+                {
+                    var data = File.ReadAllBytes(meme.ImagePath);
+                    using (var ms = new System.IO.MemoryStream(data))
+                    {
+                        using (var img = Image.FromStream(ms))
+                        {
+
+                        }
+                    }
+                }
+
+            }
+        }
+
     }
 }
 
