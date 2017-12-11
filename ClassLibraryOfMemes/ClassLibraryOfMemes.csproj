@@ -40,6 +40,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -59,9 +60,26 @@
     <Compile Include="Migrations\201712091436531_ConnectionRemoved.Designer.cs">
       <DependentUpon>201712091436531_ConnectionRemoved.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712101217448_NewTableCreated.cs" />
+    <Compile Include="Migrations\201712101217448_NewTableCreated.Designer.cs">
+      <DependentUpon>201712101217448_NewTableCreated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712101501398_InheritanceAdded.cs" />
+    <Compile Include="Migrations\201712101501398_InheritanceAdded.Designer.cs">
+      <DependentUpon>201712101501398_InheritanceAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712102056394_InheritanceChanged.cs" />
+    <Compile Include="Migrations\201712102056394_InheritanceChanged.Designer.cs">
+      <DependentUpon>201712102056394_InheritanceChanged.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712111448363_StoringImageModified.cs" />
+    <Compile Include="Migrations\201712111448363_StoringImageModified.Designer.cs">
+      <DependentUpon>201712111448363_StoringImageModified.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Group.cs" />
     <Compile Include="Model\Meme.cs" />
+    <Compile Include="Model\UsersMeme.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
   </ItemGroup>
@@ -75,6 +93,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712091436531_ConnectionRemoved.resx">
       <DependentUpon>201712091436531_ConnectionRemoved.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712101217448_NewTableCreated.resx">
+      <DependentUpon>201712101217448_NewTableCreated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712101501398_InheritanceAdded.resx">
+      <DependentUpon>201712101501398_InheritanceAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712102056394_InheritanceChanged.resx">
+      <DependentUpon>201712102056394_InheritanceChanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712111448363_StoringImageModified.resx">
+      <DependentUpon>201712111448363_StoringImageModified.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
