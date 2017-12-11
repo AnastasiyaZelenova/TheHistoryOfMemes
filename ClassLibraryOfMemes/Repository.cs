@@ -17,6 +17,9 @@ namespace ClassLibraryOfMemes
     {
         public event Action<Meme> MemeAdded;
         public event Action<Group> GroupAdded;
+        public event Action<UsersMeme> UsersMemeAdded;
+        public event Action<UsersMeme> UsersMemeDeleted;
+
 
         public IEnumerable<Meme> Memes
         {
@@ -34,15 +37,14 @@ namespace ClassLibraryOfMemes
                     return context.Groups.ToList();
             }
         }
-        //public ContextOfMemes Context { get; set; }
-        //public List<Meme> Memes { get; set; }
-        //public List<Group> Groups { get; set; }
-        //public Repository(ContextOfMemes context)
-        //{
-        //    Context = context;
-        //    Memes = context.Memes.ToList();
-        //    Groups = context.Groups.ToList();
-        //}
+        public IEnumerable<UsersMeme> UserMemes
+        {
+            get
+            {
+                using (var context = new ContextOfMemes())
+                    return context.UserMemes.ToList();
+            }
+        }
         public void EditMeme(Meme editedmeme, string description, List<Group> groups)
         {
             using (var context = new ContextOfMemes())
@@ -81,11 +83,7 @@ namespace ClassLibraryOfMemes
         {
             using (var context = new ContextOfMemes())
             {
-                //foreach (var m in Memes)
-                //{
-                //    if (m.Id == meme.Id)
-                //        throw new ArgumentException("Codes must be unique.");
-                //}
+           
                 try
                 {
                     context.Memes.Add(meme);
@@ -102,11 +100,7 @@ namespace ClassLibraryOfMemes
         {
             using (var context = new ContextOfMemes())
             {
-                //foreach (var g in Groups)
-                //{
-                //    if (g.Id == group.Id)
-                //        throw new ArgumentException("Ids must be unique.");
-                //}
+               
                 try
                 {
                     context.Groups.Add(group);
@@ -151,22 +145,60 @@ namespace ClassLibraryOfMemes
             var filename = Path.Combine(appDir, relativePath);
             return filename;
         }
-        public void infoShow()
+        public void AddUsersMeme(UsersMeme umeme)
+        {
+            using (var context = new ContextOfMemes())
+            {
+
+                try
+                {
+                    context.UserMemes.Add(umeme);
+                    context.SaveChanges();
+                    UsersMemeAdded?.Invoke(umeme);
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Error during adding group to database.");
+                }
+            }
+        }
+        public void DeleteUsersMeme(UsersMeme umeme)
+        {
+            using (var context = new ContextOfMemes())
+            {
+                try
+                {
+                    var umemeInDB = context.UserMemes.First(m => m.Id == umeme.Id);
+                    context.UserMemes.Remove(umemeInDB);
+                    context.SaveChanges();
+                    UsersMemeDeleted?.Invoke(umeme);
+                }
+                catch (Exception)
+                {
+
+                    throw new Exception("No delete was provided succesfully.");
+                }
+            }
+        }
+        public void InfoShow()
         {
             using (var context = new ContextOfMemes())
             {
                 foreach (var meme in context.Memes)
                 {
                     var data = File.ReadAllBytes(meme.ImagePath);
-                    using (var ms = new MemoryStream(data))
+                    using (var ms = new System.IO.MemoryStream(data))
                     {
                         using (var img = Image.FromStream(ms))
                         {
+
                         }
                     }
                 }
+
             }
         }
-        }
+
+    }
 }
 
