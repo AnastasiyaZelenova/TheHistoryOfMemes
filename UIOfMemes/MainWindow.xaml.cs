@@ -29,8 +29,8 @@ namespace UIOfMemes
         {
             InitializeComponent();
             this.repository = repository;
-           
-            
+            listBoxGroups.ItemsSource = repository.Groups;
+          //  repository.MemeAdded += m => ListBoxOfMemes.Items.Refresh();
         }
 
         private void buttonAddMeme_Click(object sender, RoutedEventArgs e)

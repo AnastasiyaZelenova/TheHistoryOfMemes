@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIOfMemes"
         mc:Ignorable="d"
-        Title="MemeWindow" Height="600" Width="800">
+        Title="MemeWindow" Height="600" Width="800" Background="AliceBlue">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"></RowDefinition>
