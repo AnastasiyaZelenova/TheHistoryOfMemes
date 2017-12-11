@@ -38,7 +38,7 @@ namespace ClassLibraryOfMemes.Migrations
                     "в паблике 4ch и завоевал Интернет.",
                     Year = 2010,
                     Likes = 0,
-                    ImagePath = "../../Memes/Me Gusta.jpg"
+                    ImagePath = "Memes/Me Gusta.jpg"
                 }
             };
 

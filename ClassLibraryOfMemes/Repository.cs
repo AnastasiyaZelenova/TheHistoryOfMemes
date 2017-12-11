@@ -151,6 +151,22 @@ namespace ClassLibraryOfMemes
             var filename = Path.Combine(appDir, relativePath);
             return filename;
         }
-    }
+        public void infoShow()
+        {
+            using (var context = new ContextOfMemes())
+            {
+                foreach (var meme in context.Memes)
+                {
+                    var data = File.ReadAllBytes(meme.ImagePath);
+                    using (var ms = new MemoryStream(data))
+                    {
+                        using (var img = Image.FromStream(ms))
+                        {
+                        }
+                    }
+                }
+            }
+        }
+        }
 }
 

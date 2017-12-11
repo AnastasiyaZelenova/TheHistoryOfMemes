@@ -47,6 +47,7 @@ namespace UIOfMemes
             {
                 MainWindow mainWindow = new MainWindow(repository);
                 mainWindow.Show();
+                Close();
             }
             else
             {

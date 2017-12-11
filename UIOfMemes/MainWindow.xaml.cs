@@ -30,6 +30,7 @@ namespace UIOfMemes
             InitializeComponent();
             this.repository = repository;
             listBoxGroups.ItemsSource = repository.Groups;
+            ListBoxOfMemes.ItemsSource = repository.;
           //  repository.MemeAdded += m => ListBoxOfMemes.Items.Refresh();
         }
 
@@ -37,6 +38,9 @@ namespace UIOfMemes
         {
             AddMemeWindow addMemeWindow = new AddMemeWindow();
             addMemeWindow.Show();
+        }
+        
+                
         }
     }
 }
