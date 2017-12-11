@@ -29,6 +29,8 @@ namespace UIOfMemes
         {
             InitializeComponent();
             this.repository = repository;
+           
+            
         }
 
         private void buttonAddMeme_Click(object sender, RoutedEventArgs e)

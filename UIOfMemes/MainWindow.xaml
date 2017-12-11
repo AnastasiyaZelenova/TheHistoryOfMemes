@@ -34,6 +34,6 @@
             <Image x:Name="image1" Height="25" Width="25" />
             <TextBox Margin="5,0,0,0"  Height="25"  TextWrapping="Wrap"  />
         </DockPanel>
-        <Button Name="signIn" Grid.Column="1" HorizontalAlignment="Right" Margin="0 20 20 70 " Content="Sign n" MinWidth="60"></Button>
+        <Button Name="signIn" Grid.Column="1" HorizontalAlignment="Right" Margin="0 20 20 70 " Content="Sign In" MinWidth="60"></Button>
     </Grid>
 </Window>
