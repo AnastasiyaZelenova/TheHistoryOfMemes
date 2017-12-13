@@ -13,9 +13,10 @@
         </Grid.ColumnDefinitions>
         <InkCanvas Name="inkCanvasPaint"  />
         <StackPanel Orientation="Vertical" VerticalAlignment="Top"  Grid.Column="1" >
-            <DockPanel Margin="30 30 30 10" >
-                <Button Name="buttonClear" Content="Clear" FontSize="30" MinHeight="40" MinWidth="50" Margin="5 0" Click="buttonClear_Click" ></Button>
-                <Button Name="buttonSave" Content="Save" FontSize="30" MinHeight="40" MinWidth="30" Margin="5 0" Click="buttonSave_Click" ></Button>
+            <DockPanel Margin="0,30,0,10" Height="30" >
+                <Button Name="buttonClear" Content="Clear" FontSize="15" MinHeight="20" MinWidth="50" Margin="5 0" Click="buttonClear_Click" ></Button>
+              
+                <Button Name="buttonSave" Content="Save"  FontSize="15" MinHeight="20" MinWidth="30" Margin="5 0" Click="buttonSave_Click"></Button>
             </DockPanel>
             <Slider Name="sldGreen" Background="Green" Minimum="0" Maximum="255" Margin="10 5" ValueChanged="sldColor_ValueChanged"/>
             <Slider Name="sldRed" Background="Red" Minimum="0" Maximum="255" Margin="10 5" ValueChanged="sldColor_ValueChanged"/>
@@ -24,7 +25,7 @@
             <TextBlock Text="Name:" FontSize="23" Margin="10, 10, 0, 0" FontWeight="Bold" ></TextBlock>
             <TextBox Name="memeName" Height="23" Margin="10 0"></TextBox>
             <TextBlock Text="Description:" FontSize="23" Margin="10,20,0,0" FontWeight="Bold" ></TextBlock>
-            <RichTextBox  Name="memeDescription" Height="103" Margin="10,0" ></RichTextBox>
+            <TextBox  Name="memeDescription" Height="103" Margin="10,0" SpellCheck.IsEnabled="True" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"></TextBox>
             <TextBlock Text="Year:" FontSize="23" Margin="10,20,0,0" FontWeight="Bold" ></TextBlock>
             <TextBox Name="memeYear" Height="23" Margin="10 0"></TextBox>
         </StackPanel>

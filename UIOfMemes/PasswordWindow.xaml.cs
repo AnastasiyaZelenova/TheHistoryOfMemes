@@ -22,16 +22,36 @@ namespace UIOfMemes
     public partial class PasswordWindow : Window
     {
         Repository repository = new Repository();
+        VkAuth vkAuth = new VkAuth();
+
+        private void Authorize()
+        {
+            var browserWindow = new BrowserWindow();
+
+            browserWindow.OnRedirected += vkAuth.AuthorizationRedirect;
+            browserWindow.Show();
+
+            browserWindow.NavigateTo(vkAuth.GetAuthUrl(), vkAuth.RedirectPage);
+        }
+
         public PasswordWindow()
         {
             InitializeComponent();
+            vkAuth.OnAuthorized += Authorized;
+            vkAuth.CheckAuthorization();
         }
+
+        private void Authorized()
+        {
+        }
+
         private string CalculateHash(string password)
         {
             MD5 md5 = MD5.Create();
             var hash = md5.ComputeHash(Encoding.ASCII.GetBytes(password));
             return Convert.ToBase64String(hash);
         }
+
         private void Page_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -39,6 +59,7 @@ namespace UIOfMemes
                 buttonPassword_Click(null, null);
             }
         }
+
         private void buttonPassword_Click(object sender, RoutedEventArgs e)
         {
             var hash = CalculateHash("imcoolgirl");
@@ -75,6 +96,11 @@ namespace UIOfMemes
                 _loginEntered = false;
                 textBoxLogin.Foreground = new SolidColorBrush(Colors.Gray);
             }
+        }
+
+        private void buttonVk_Click(object sender, RoutedEventArgs e)
+        {
+            Authorize();
         }
     }
 }

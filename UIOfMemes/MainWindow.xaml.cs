@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Drawing;
 using System.IO;
 
 namespace UIOfMemes
@@ -18,23 +19,14 @@ namespace UIOfMemes
         Repository repository;
         public MainWindow(Repository repository)
         {
+           
             InitializeComponent();
             this.repository = repository;
-            //ListBoxOfMemes.ItemsSource = repository.Memes;
-
-            ListBoxOfMemes.ItemsSource = repository.Memes;
+            listViewMemes.ItemsSource = repository.Memes;
             listBoxGroups.ItemsSource = repository.Groups;
-            //foreach (var item in repository.Info())
-            //{
-            //    ListBoxOfMemes.Items.Add(item);
-            //}
-            //foreach (var meme in repository.Memes)
-            //{
-            //    repository.InfoShow(meme);
-            //    ListBoxOfMemes.Items.Add(meme);
-            //}
-            
-            //  repository.MemeAdded += m => ListBoxOfMemes.Items.Refresh();
+       
+            repository.MemeAdded += m => listViewMemes.Items.Refresh();
+            repository.GroupAdded += m => listBoxGroups.Items.Refresh();
         }
 
         private void buttonAddMeme_Click(object sender, RoutedEventArgs e)
@@ -42,5 +34,6 @@ namespace UIOfMemes
             AddMemeWindow addMemeWindow = new AddMemeWindow();
             addMemeWindow.Show();
         }
+       
     }
 }
