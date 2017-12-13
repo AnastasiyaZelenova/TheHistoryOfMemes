@@ -14,9 +14,6 @@ namespace ClassLibraryOfMemes
 
         public string Url { get; set; }
 
-        public Group()
-        {
-
-        }
+        public Group() {}
     }
 }
