@@ -24,6 +24,5 @@
             <TextBlock Text="Description:" FontStyle="Italic" FontSize="35" Margin="10"></TextBlock>
             <TextBlock Name="textBlockDescription" ></TextBlock>
         </StackPanel>
-        
     </Grid>
 </Window>

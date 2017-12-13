@@ -108,7 +108,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Memes\Me Gusta.jpg" />
+    <Resource Include="Memes\MeGusta.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

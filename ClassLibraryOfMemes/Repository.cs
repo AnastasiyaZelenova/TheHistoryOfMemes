@@ -19,7 +19,10 @@ namespace ClassLibraryOfMemes
         public event Action<Group> GroupAdded;
         public event Action<UsersMeme> UsersMemeAdded;
         public event Action<UsersMeme> UsersMemeDeleted;
-
+        public Repository()
+        {
+            //ImagePath();
+        }
 
         public IEnumerable<Meme> Memes
         {
@@ -29,6 +32,7 @@ namespace ClassLibraryOfMemes
                     return context.Memes.ToList();
             }
         }
+
         public IEnumerable<Group> Groups
         {
             get
@@ -58,7 +62,6 @@ namespace ClassLibraryOfMemes
                 }
                 catch (Exception)
                 {
-
                     throw new Exception("Editing was provided incorrectly.");
                 }
             }
@@ -83,7 +86,6 @@ namespace ClassLibraryOfMemes
         {
             using (var context = new ContextOfMemes())
             {
-           
                 try
                 {
                     context.Memes.Add(meme);
@@ -100,7 +102,6 @@ namespace ClassLibraryOfMemes
         {
             using (var context = new ContextOfMemes())
             {
-               
                 try
                 {
                     context.Groups.Add(group);
@@ -141,15 +142,16 @@ namespace ClassLibraryOfMemes
 
         public string GettingImagePath(string relativePath)
         {
-            var appDir = AppDomain.CurrentDomain.BaseDirectory;
-            var filename = Path.Combine(appDir, relativePath);
-            return filename;
+            var location = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            var path = Path.GetDirectoryName(location);
+            //var appDir = AppDomain.CurrentDomain.BaseDirectory;
+            var fullPath = Path.Combine(path, @"\ClassLibraryOfMemes\Memes\", relativePath);
+            return fullPath;
         }
         public void AddUsersMeme(UsersMeme umeme)
         {
             using (var context = new ContextOfMemes())
             {
-
                 try
                 {
                     context.UserMemes.Add(umeme);
@@ -180,24 +182,45 @@ namespace ClassLibraryOfMemes
                 }
             }
         }
-        public void InfoShow()
+        public void InfoShow(Meme meme)
         {
             using (var context = new ContextOfMemes())
             {
-                foreach (var meme in context.Memes)
-                {
-                    var data = File.ReadAllBytes(meme.ImagePath);
-                    using (var ms = new System.IO.MemoryStream(data))
-                    {
-                        using (var img = Image.FromStream(ms))
-                        {
 
-                        }
+                var data = File.ReadAllBytes(meme.ImagePath);
+                using (var ms = new System.IO.MemoryStream(data))
+                {
+                    using (var img = Image.FromStream(ms))
+                    {
+
                     }
                 }
-
             }
         }
+        public IEnumerable<Meme> ImagePath()
+        {
+            var Memesd = Memes;
+            foreach (var item in Memesd)
+            {
+                item.ImagePath = GetFullPath(item.ImagePath);
+            }
+            return Memesd;
+        }
+
+        private string GetFullPath(string imagePath)
+        {
+            var fullpath = Path.GetFullPath(imagePath);
+            return fullpath;
+        }
+        //public List<string> Info()
+        //{
+        //    List<string> Paths = new List<string>();
+        //    foreach (var item in Memes)
+        //    {
+        //        Paths.Add(item.ImagePath);
+        //    }
+        //    return Paths;
+        //}
 
     }
 }

@@ -14,9 +14,6 @@ namespace ClassLibraryOfMemes
         public DbSet<Meme> Memes { get; set; }
         public DbSet<UsersMeme> UserMemes { get; set; }
 
-        public ContextOfMemes() : base("localsql")
-        {
-
-        }
+        public ContextOfMemes() : base("localsql") { }
     }
 }

@@ -20,10 +20,21 @@ namespace UIOfMemes
         {
             InitializeComponent();
             this.repository = repository;
-            repository.InfoShow();
+            //ListBoxOfMemes.ItemsSource = repository.Memes;
+
             ListBoxOfMemes.ItemsSource = repository.Memes;
+            listBoxGroups.ItemsSource = repository.Groups;
+            //foreach (var item in repository.Info())
+            //{
+            //    ListBoxOfMemes.Items.Add(item);
+            //}
+            //foreach (var meme in repository.Memes)
+            //{
+            //    repository.InfoShow(meme);
+            //    ListBoxOfMemes.Items.Add(meme);
+            //}
+            
             //  repository.MemeAdded += m => ListBoxOfMemes.Items.Refresh();
-           
         }
 
         private void buttonAddMeme_Click(object sender, RoutedEventArgs e)
@@ -31,6 +42,5 @@ namespace UIOfMemes
             AddMemeWindow addMemeWindow = new AddMemeWindow();
             addMemeWindow.Show();
         }
-       
     }
 }
