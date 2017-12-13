@@ -30,7 +30,7 @@ namespace UIOfMemes
             InitializeComponent();
             imageMeme.Source = new BitmapImage(new Uri(meme.ImagePath, UriKind.RelativeOrAbsolute));
             textBlockDescription.Text = meme.Description;
-            meme.Likes = int.Parse(textBlockLikes.Text);
+            //meme.Likes = int.Parse(textBlockLikes.Text);
         }
     }
 }

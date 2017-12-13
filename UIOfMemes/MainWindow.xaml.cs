@@ -16,12 +16,11 @@ namespace UIOfMemes
     /// </summary>
     public partial class MainWindow : Window
     {
-        Repository repository;
+        Repository _repository;
         public MainWindow(Repository repository)
         {
-           
             InitializeComponent();
-            this.repository = repository;
+            _repository = repository;
             listViewMemes.ItemsSource = repository.Memes;
             listBoxGroups.ItemsSource = repository.Groups;
        
@@ -39,7 +38,7 @@ namespace UIOfMemes
         {
             if(listViewMemes.SelectedIndex != -1)
             {
-                MemeWindow memeWindow = new MemeWindow(repository,listViewMemes.SelectedItem as Meme);
+                MemeWindow memeWindow = new MemeWindow(_repository,listViewMemes.SelectedItem as Meme);
                 memeWindow.Show();
             }
         }
