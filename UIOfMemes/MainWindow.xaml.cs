@@ -34,6 +34,14 @@ namespace UIOfMemes
             AddMemeWindow addMemeWindow = new AddMemeWindow();
             addMemeWindow.Show();
         }
-       
+
+        private void listViewMemes_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if(listViewMemes.SelectedIndex != -1)
+            {
+                MemeWindow memeWindow = new MemeWindow(repository,listViewMemes.SelectedItem as Meme);
+                memeWindow.Show();
+            }
+        }
     }
 }

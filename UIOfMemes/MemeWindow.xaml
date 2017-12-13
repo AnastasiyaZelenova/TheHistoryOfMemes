@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIOfMemes"
         mc:Ignorable="d"
-        Title="MemeWindow" Height="600" Width="800" Background="AliceBlue">
+        Title="MemeWindow" Height="600" Width="800" Background="AliceBlue" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"></RowDefinition>
@@ -15,14 +15,20 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Image Margin="10"></Image>
+        <Image Name="imageMeme" Margin="10" Source="{Binding ImagePath}" ></Image>
         <DockPanel Grid.Row="1" Margin="40">
-            <TextBlock Text="Year:" FontSize="40"></TextBlock>
+            <TextBlock Text="Year:" FontSize="30"></TextBlock>
             <TextBlock Name="textBlockMemYear" FontSize="50"></TextBlock>
         </DockPanel>
-        <StackPanel Orientation="Vertical" Grid.Column="1">
-            <TextBlock Text="Description:" FontStyle="Italic" FontSize="35" Margin="10"></TextBlock>
-            <TextBlock Name="textBlockDescription" ></TextBlock>
+        <StackPanel Orientation="Vertical" Grid.Column="1" Margin="0 30">
+            <TextBlock Text="Description:"  FontSize="25" FontWeight="Bold" FontFamily="Arial Black" Margin="0 10"></TextBlock>
+            <ScrollViewer Height="310" VerticalScrollBarVisibility="Auto">
+                <TextBlock Name="textBlockDescription" Text="{Binding Description}"  FontFamily="Times New Roman" FontSize="16" TextWrapping="WrapWithOverflow" VerticalAlignment="Bottom" Margin="0 10 40 0" ></TextBlock>
+            </ScrollViewer>
         </StackPanel>
+        <DockPanel Margin="40" Grid.Column="1" Grid.Row="1">
+            <Button Name="buttonLikes" MinHeight="20" MinWidth="45" Margin="10" Content="Like" ></Button>
+            <TextBlock Name="textBlockLikes" Text="{Binding Likes}"></TextBlock>
+        </DockPanel>
     </Grid>
 </Window>
