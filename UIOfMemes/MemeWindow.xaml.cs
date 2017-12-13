@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ClassLibraryOfMemes;
+using System.Drawing;
 
 namespace UIOfMemes
 {
@@ -19,9 +21,16 @@ namespace UIOfMemes
     /// </summary>
     public partial class MemeWindow : Window
     {
-        public MemeWindow()
+        Repository _repository;
+        Meme _meme;
+        public MemeWindow(Repository repository, Meme meme)
         {
+            _repository = repository;
+            _meme = meme;
             InitializeComponent();
+            imageMeme.Source = new BitmapImage(new Uri(meme.ImagePath, UriKind.RelativeOrAbsolute));
+            textBlockDescription.Text = meme.Description;
+            meme.Likes = int.Parse(textBlockLikes.Text);
         }
     }
 }

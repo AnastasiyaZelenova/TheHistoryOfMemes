@@ -20,6 +20,7 @@ namespace ClassLibraryOfMemes
         public event Action<Group> GroupAdded;
         public event Action<UsersMeme> UsersMemeAdded;
         public event Action<UsersMeme> UsersMemeDeleted;
+        public event Action<int> LikesChanged;
 
 
         public IEnumerable<Meme> Memes

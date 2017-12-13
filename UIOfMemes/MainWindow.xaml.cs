@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Drawing;
 using System.IO;
 
@@ -16,17 +17,17 @@ namespace UIOfMemes
     public partial class MainWindow : Window
     {
         Repository repository;
-        VkAuth vkAuth = new VkAuth();
-
         public MainWindow(Repository repository)
         {
+           
             InitializeComponent();
             this.repository = repository;
+           
 
-            listViewMemes.ItemsSource = repository.Info();
+            listViewMemes.ItemsSource = repository.Memes;
             listBoxGroups.ItemsSource = repository.Groups;
        
-            repository.MemeAdded += m => listViewMemes.Items.Refresh();
+            repository.UsersMemeAdded += m => listViewMemes.Items.Refresh();
             repository.GroupAdded += m => listBoxGroups.Items.Refresh();
         }
 
@@ -36,9 +37,10 @@ namespace UIOfMemes
             addMemeWindow.Show();
         }
 
-        private void buttonLogOut_Click(object sender, RoutedEventArgs e)
-        {
-            vkAuth.ClearToken();
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {            
+                if (string.IsNullOrWhiteSpace(textBoxSearch.Text)) listViewMemes.ItemsSource = repository.Memes;
+                else listViewMemes.ItemsSource = repository.Memes.Where(meme => meme.Name.ToUpper().Contains(textBoxSearch.Text.ToUpper()));           
         }
     }
 }
