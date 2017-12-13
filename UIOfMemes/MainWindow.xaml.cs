@@ -17,6 +17,8 @@ namespace UIOfMemes
     public partial class MainWindow : Window
     {
         Repository repository;
+        VkAuth vkAuth = new VkAuth();
+
         public MainWindow(Repository repository)
         {
            
@@ -41,6 +43,11 @@ namespace UIOfMemes
         {            
                 if (string.IsNullOrWhiteSpace(textBoxSearch.Text)) listViewMemes.ItemsSource = repository.Memes;
                 else listViewMemes.ItemsSource = repository.Memes.Where(meme => meme.Name.ToUpper().Contains(textBoxSearch.Text.ToUpper()));           
+        }
+
+        private void buttonLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            vkAuth.ClearToken();
         }
     }
 }
