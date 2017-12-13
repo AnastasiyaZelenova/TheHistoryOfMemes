@@ -38,15 +38,16 @@ namespace UIOfMemes
 
         private void listViewMemes_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            if(listViewMemes.SelectedIndex != -1)
+            if (listViewMemes.SelectedIndex != -1)
             {
-                MemeWindow memeWindow = new MemeWindow(_repository,listViewMemes.SelectedItem as Meme);
+                MemeWindow memeWindow = new MemeWindow(_repository, listViewMemes.SelectedItem as Meme);
                 memeWindow.Show();
             }
+        }
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {            
-                if (string.IsNullOrWhiteSpace(textBoxSearch.Text)) listViewMemes.ItemsSource = repository.Memes;
-                else listViewMemes.ItemsSource = repository.Memes.Where(meme => meme.Name.ToUpper().Contains(textBoxSearch.Text.ToUpper()));           
+                if (string.IsNullOrWhiteSpace(textBoxSearch.Text)) listViewMemes.ItemsSource = _repository.Memes;
+                else listViewMemes.ItemsSource = _repository.Memes.Where(meme => meme.Name.ToUpper().Contains(textBoxSearch.Text.ToUpper()));           
         }
 
         private void buttonLogOut_Click(object sender, RoutedEventArgs e)
