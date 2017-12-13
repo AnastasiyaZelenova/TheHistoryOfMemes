@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UIOfMemes"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800"  WindowStartupLocation="CenterScreen">
-    <Grid>
+    <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="2.5*"></ColumnDefinition>
@@ -45,15 +45,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <!--<ListBox x:Name="ListBoxOfMemes" Grid.Column="1" Grid.Row="1" Margin="15 30">
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel  Orientation="Horizontal">
-                        <Image 
-                    </StackPanel>
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-        </ListBox>-->
+       
         <StackPanel Orientation="Horizontal" Margin="210 30" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top">
             <Button Name="buttonAddMeme" Content="Add" MinHeight="50" MinWidth="70" Click="buttonAddMeme_Click" ></Button>
             <Button Content="Rating" MinHeight="50" MinWidth="70" ></Button>
@@ -61,7 +53,7 @@
         
         <DockPanel Grid.Column="1" Margin="50 50 50 0" >
             <Image x:Name="image1" Height="25" Width="25" />
-            <TextBox Margin="5,0,0,0"  Height="25"  TextWrapping="Wrap"  />
+            <TextBox x:Name="textBoxSearch" Margin="5,0,0,0"  Height="25"  TextWrapping="Wrap" TextChanged="TextBox_TextChanged"  />
         </DockPanel>
         <Button Name="signIn" Grid.Column="1" HorizontalAlignment="Right" Margin="0 20 20 70 " Content="Sign In" MinWidth="60"></Button>
     </Grid>

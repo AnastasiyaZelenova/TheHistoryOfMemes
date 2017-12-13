@@ -22,10 +22,12 @@ namespace UIOfMemes
            
             InitializeComponent();
             this.repository = repository;
+           
+
             listViewMemes.ItemsSource = repository.Memes;
             listBoxGroups.ItemsSource = repository.Groups;
        
-            repository.MemeAdded += m => listViewMemes.Items.Refresh();
+            repository.UsersMemeAdded += m => listViewMemes.Items.Refresh();
             repository.GroupAdded += m => listBoxGroups.Items.Refresh();
         }
 
@@ -34,6 +36,11 @@ namespace UIOfMemes
             AddMemeWindow addMemeWindow = new AddMemeWindow();
             addMemeWindow.Show();
         }
-       
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {            
+                if (string.IsNullOrWhiteSpace(textBoxSearch.Text)) listViewMemes.ItemsSource = repository.Memes;
+                else listViewMemes.ItemsSource = repository.Memes.Where(meme => meme.Name.ToUpper().Contains(textBoxSearch.Text.ToUpper()));           
+        }
     }
 }
