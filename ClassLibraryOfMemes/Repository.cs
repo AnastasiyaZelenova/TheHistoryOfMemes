@@ -10,6 +10,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
 using ClassLibraryOfMemes.Model;
+using System.Reflection;
 
 namespace ClassLibraryOfMemes
 {
@@ -113,6 +114,7 @@ namespace ClassLibraryOfMemes
                 }
             }
         }
+
         public void DeleteGroup(Group group)
         {
             using (var context = new ContextOfMemes())
@@ -125,24 +127,24 @@ namespace ClassLibraryOfMemes
                 }
                 catch (Exception)
                 {
-
                     throw new Exception("No delete was provided succesfully.");
                 }
             }
         }
-      
 
-        public string GettingImagePath(string relativePath)
+        public string GetImagePath(string relativePath)
         {
+            
             var appDir = AppDomain.CurrentDomain.BaseDirectory;
-            var filename = Path.Combine(appDir, relativePath);
-            return filename;
+            var filePath = Path.Combine(appDir, relativePath);
+            return filePath;
         }
+        
+
         public void AddUsersMeme(UsersMeme umeme)
         {
             using (var context = new ContextOfMemes())
             {
-
                 try
                 {
                     context.UserMemes.Add(umeme);
@@ -155,6 +157,7 @@ namespace ClassLibraryOfMemes
                 }
             }
         }
+
         public void DeleteUsersMeme(UsersMeme umeme)
         {
             using (var context = new ContextOfMemes())
@@ -168,13 +171,11 @@ namespace ClassLibraryOfMemes
                 }
                 catch (Exception)
                 {
-
                     throw new Exception("No delete was provided succesfully.");
                 }
             }
         }
      
-
     }
 }
 

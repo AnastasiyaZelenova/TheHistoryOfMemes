@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using System.Drawing;
 using System.IO;
 
@@ -17,12 +16,14 @@ namespace UIOfMemes
     public partial class MainWindow : Window
     {
         Repository repository;
+        VkAuth vkAuth = new VkAuth();
+
         public MainWindow(Repository repository)
         {
-           
             InitializeComponent();
             this.repository = repository;
-            listViewMemes.ItemsSource = repository.Memes;
+
+            listViewMemes.ItemsSource = repository.Info();
             listBoxGroups.ItemsSource = repository.Groups;
        
             repository.MemeAdded += m => listViewMemes.Items.Refresh();
@@ -34,6 +35,10 @@ namespace UIOfMemes
             AddMemeWindow addMemeWindow = new AddMemeWindow();
             addMemeWindow.Show();
         }
-       
+
+        private void buttonLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            vkAuth.ClearToken();
+        }
     }
 }
