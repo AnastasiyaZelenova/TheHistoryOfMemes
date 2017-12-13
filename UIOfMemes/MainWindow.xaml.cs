@@ -16,6 +16,8 @@ namespace UIOfMemes
     /// </summary>
     public partial class MainWindow : Window
     {
+        VkAuth vkAuth = new VkAuth();
+
         Repository _repository;
         public MainWindow(Repository repository)
         {
@@ -24,7 +26,7 @@ namespace UIOfMemes
             listViewMemes.ItemsSource = repository.Memes;
             listBoxGroups.ItemsSource = repository.Groups;
        
-            repository.MemeAdded += m => listViewMemes.Items.Refresh();
+            repository.UsersMemeAdded += m => listViewMemes.Items.Refresh();
             repository.GroupAdded += m => listBoxGroups.Items.Refresh();
         }
 
@@ -41,6 +43,15 @@ namespace UIOfMemes
                 MemeWindow memeWindow = new MemeWindow(_repository,listViewMemes.SelectedItem as Meme);
                 memeWindow.Show();
             }
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {            
+                if (string.IsNullOrWhiteSpace(textBoxSearch.Text)) listViewMemes.ItemsSource = repository.Memes;
+                else listViewMemes.ItemsSource = repository.Memes.Where(meme => meme.Name.ToUpper().Contains(textBoxSearch.Text.ToUpper()));           
+        }
+
+        private void buttonLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            vkAuth.ClearToken();
         }
     }
 }

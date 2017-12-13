@@ -38,6 +38,11 @@ namespace ClassLibraryOfMemes
             catch {}
         }
 
+        public void ClearToken()
+        {
+            File.Delete(TokenFile);
+        }
+
         // Save the token to a file
         // This is a very simple way, in real applications tokens should not be stored in plain text!
         public void SaveToken(string newToken)
