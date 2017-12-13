@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using ClassLibraryOfMemes;
+using ClassLibraryOfMemes.Model;
 
 namespace UIOfMemes
 {
@@ -20,6 +21,7 @@ namespace UIOfMemes
     /// </summary>
     public partial class AddMemeWindow : Window
     {
+        Repository repository = new Repository();
         public AddMemeWindow()
         {
             InitializeComponent();
@@ -66,8 +68,17 @@ namespace UIOfMemes
                     encoder.Frames.Add(BitmapFrame.Create(rtb));
                     encoder.Save(fs);
                 }
+                UsersMeme meme = new UsersMeme
+                {
+                    Name = memeName.Text,
+                    Description = memeDescription.Text,
+                    Year = int.Parse(memeYear.Text),
+                    ImagePath = filename,
+                    Likes = 0
+                };
+                repository.AddUsersMeme(meme);
             }
-        }
+            }
 
         private void sldColor_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -96,5 +107,7 @@ namespace UIOfMemes
         }
         public ColorRGB mcolor { get; set; }
         public Color clr { get; set; }
+
+  
     }
 }
