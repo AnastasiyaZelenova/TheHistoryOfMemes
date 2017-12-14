@@ -113,8 +113,9 @@
       <DependentUpon>201712111448363_StoringImageModified.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Memes\" />
+    <Content Include="Memes\MeGusta.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

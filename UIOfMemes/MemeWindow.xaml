@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIOfMemes"
         mc:Ignorable="d"
-        Title="MemeWindow" Height="600" Width="800" Background="AliceBlue" WindowStartupLocation="CenterScreen">
+        Title="Chosen meme" Height="600" Width="800" Background="AliceBlue" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"></RowDefinition>
@@ -27,8 +27,12 @@
             </ScrollViewer>
         </StackPanel>
         <DockPanel Margin="40" Grid.Column="1" Grid.Row="1">
-            <Button Name="buttonLikes" MinHeight="20" MinWidth="45" Margin="10" Content="Like" ></Button>
-            <TextBlock Name="textBlockLikes" Text="{Binding Likes}"></TextBlock>
+            <Button Name="buttonLikes" MaxHeight="40" MinWidth="90" Click="buttonLikes_Click" >
+                <Image Source="images/like.png" MinHeight="40" MinWidth="40"></Image>
+            </Button>
+            <TextBlock Name="textBlockLikes" Text="{Binding Likes}" Margin=" 10 10" VerticalAlignment="Center"></TextBlock>
+            <Button Name="buttonDeleteMeme" MaxHeight="40" MinWidth="90" RenderTransformOrigin="0.5,0.679" Click="buttonDeleteMeme_Click" >Delete</Button>
+            <Button Name="buttonEditMeme" MaxHeight="40" MaxWidth="90" Click="buttonEditMeme_Click" >Edit</Button>
         </DockPanel>
     </Grid>
 </Window>

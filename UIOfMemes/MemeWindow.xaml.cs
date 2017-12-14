@@ -30,7 +30,24 @@ namespace UIOfMemes
             InitializeComponent();
             imageMeme.Source = new BitmapImage(new Uri(meme.ImagePath, UriKind.RelativeOrAbsolute));
             textBlockDescription.Text = meme.Description;
-            //meme.Likes = int.Parse(textBlockLikes.Text);
+            textBlockLikes.Text = (meme.Likes).ToString();
+        }
+
+        private void buttonDeleteMeme_Click(object sender, RoutedEventArgs e)
+        {
+            _repository.DeleteMeme(_meme);
+        }
+
+        private void buttonEditMeme_Click(object sender, RoutedEventArgs e)
+        {
+            EditMeme editMeme = new EditMeme(_repository, _meme);
+            editMeme.Show();
+        }
+
+        private void buttonLikes_Click(object sender, RoutedEventArgs e)
+        {
+
+            _repository.Likes(int.Parse(textBlockLikes.Text));
         }
     }
 }

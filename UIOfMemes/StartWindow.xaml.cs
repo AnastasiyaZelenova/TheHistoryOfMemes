@@ -44,6 +44,7 @@ namespace UIOfMemes
             {
                 Close();
             }
+            Close();
             dtClockTime.Stop();
         }
     }
