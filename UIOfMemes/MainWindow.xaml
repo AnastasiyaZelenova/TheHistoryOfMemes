@@ -41,7 +41,7 @@
             </ListView.ItemTemplate>
         </ListView>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 30" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top">
-            <Button Name="buttonAddMeme" Content="Add meme" Margin="5" MinHeight="40" MinWidth="70" IsEnabled="True" Click="buttonAddMeme_Click" ></Button>
+            <Button Name="buttonAddMeme" Content="Add meme" Margin="5" MinHeight="40" MinWidth="70" IsEnabled="True"   Click="buttonAddMeme_Click" ></Button>
             <Button Name="buttonAddGroup" Content="Add group" Margin="5" MinHeight="40" IsEnabled="True" MinWidth="70" ></Button>
             <Button Name="buttonEditGroup" Content="Edit group" Margin="5" IsEnabled="True" MinHeight="40" MinWidth="70" ></Button>
             <Button Name="buttonAddUserMeme" Content="Paint meme" Margin="5" MinHeight="40" IsEnabled="True" MinWidth="70" Click="buttonAddUserMeme_Click" ></Button>
