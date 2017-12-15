@@ -114,13 +114,5 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <Content Include="Memes\GrumpyCat.jpg" />
-    <Content Include="Memes\Harold.jpg" />
-    <Content Include="Memes\MeGusta.jpg" />
-    <Content Include="Memes\PepeTheFrog.jpg" />
-    <Content Include="Memes\TonyStarkFace.jpg" />
-    <Content Include="Memes\Vzhukh.jpg" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
