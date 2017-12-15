@@ -16,32 +16,56 @@ namespace UIOfMemes
     /// </summary>
     public partial class MainWindow : Window
     {
-        Repository repository;
+        VkAuth _vkAuth = new VkAuth();
+
+        Repository _repository;
         public MainWindow(Repository repository)
         {
-           
             InitializeComponent();
-            this.repository = repository;
-           
-             
-
+            _repository = repository;
             listViewMemes.ItemsSource = repository.Memes;
             listBoxGroups.ItemsSource = repository.Groups;
-       
+            _vkAuth.OnAuthorized += Authorized;
+            _vkAuth.CheckAuthorization();
             repository.UsersMemeAdded += m => listViewMemes.Items.Refresh();
             repository.GroupAdded += m => listBoxGroups.Items.Refresh();
         }
 
-        private void buttonAddMeme_Click(object sender, RoutedEventArgs e)
+        private void Authorized()
+        {
+            buttonAddGroup.IsEnabled = false;
+            buttonAddMeme.IsEnabled = false;
+            buttonEditGroup.IsEnabled = false;
+        }
+
+        private void listViewMemes_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (listViewMemes.SelectedIndex != -1)
+            {
+                MemeWindow memeWindow = new MemeWindow(_repository, listViewMemes.SelectedItem as Meme, _vkAuth);
+                memeWindow.Show();
+            }
+        }
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {            
+                if (string.IsNullOrWhiteSpace(textBoxSearch.Text)) listViewMemes.ItemsSource = _repository.Memes;
+                else listViewMemes.ItemsSource = _repository.Memes.Where(meme => meme.Name.ToUpper().Contains(textBoxSearch.Text.ToUpper()));           
+        }
+
+        private void buttonLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            _vkAuth.ClearToken();
+        }
+
+        private void buttonAddUserMeme_Click(object sender, RoutedEventArgs e)
         {
             AddMemeWindow addMemeWindow = new AddMemeWindow();
             addMemeWindow.Show();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {            
-                if (string.IsNullOrWhiteSpace(textBoxSearch.Text)) listViewMemes.ItemsSource = repository.Memes;
-                else listViewMemes.ItemsSource = repository.Memes.Where(meme => meme.Name.ToUpper().Contains(textBoxSearch.Text.ToUpper()));           
+        private void buttonAddMeme_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

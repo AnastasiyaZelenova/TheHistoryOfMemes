@@ -35,9 +35,12 @@ namespace ClassLibraryOfMemes
                 if (!string.IsNullOrEmpty(_token))
                     OnAuthorized?.Invoke();
             }
-            catch
-            {
-            }
+            catch {}
+        }
+
+        public void ClearToken()
+        {
+            File.Delete(TokenFile);
         }
 
         // Save the token to a file

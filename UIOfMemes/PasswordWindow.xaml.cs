@@ -27,10 +27,8 @@ namespace UIOfMemes
         private void Authorize()
         {
             var browserWindow = new BrowserWindow();
-
             browserWindow.OnRedirected += vkAuth.AuthorizationRedirect;
             browserWindow.Show();
-
             browserWindow.NavigateTo(vkAuth.GetAuthUrl(), vkAuth.RedirectPage);
         }
 
@@ -43,6 +41,9 @@ namespace UIOfMemes
 
         private void Authorized()
         {
+            MainWindow mainWindow = new MainWindow(repository);
+            mainWindow.Show();
+            Close();
         }
 
         private string CalculateHash(string password)
@@ -55,9 +56,7 @@ namespace UIOfMemes
         private void Page_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
-            {
                 buttonPassword_Click(null, null);
-            }
         }
 
         private void buttonPassword_Click(object sender, RoutedEventArgs e)
@@ -71,9 +70,7 @@ namespace UIOfMemes
                 Close();
             }
             else
-            {
                 MessageBox.Show("Incorrect username or password entered. Please try again.", "Error");
-            }
         }
 
         bool _loginEntered = false;
@@ -101,6 +98,15 @@ namespace UIOfMemes
         private void buttonVk_Click(object sender, RoutedEventArgs e)
         {
             Authorize();
+        }
+
+        private void buttonPasswordCancel_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Do you really want to close the app?", "Close the app?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+                Application.Current.Shutdown();
+            if (result == MessageBoxResult.No)
+                return;
         }
     }
 }

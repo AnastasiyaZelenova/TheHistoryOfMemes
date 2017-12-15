@@ -36,7 +36,14 @@ namespace UIOfMemes
             //MainWindow mainWindow = new MainWindow(repository);
             //mainWindow.Show();
             PasswordWindow passwordWindow = new PasswordWindow();
-            passwordWindow.Show();
+            try
+            {
+                passwordWindow.Show();
+            }
+            catch (Exception)
+            {
+                Close();
+            }
             Close();
             dtClockTime.Stop();
         }

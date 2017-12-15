@@ -10,6 +10,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
 using ClassLibraryOfMemes.Model;
+using System.Reflection;
 
 namespace ClassLibraryOfMemes
 {
@@ -19,6 +20,7 @@ namespace ClassLibraryOfMemes
         public event Action<Group> GroupAdded;
         public event Action<UsersMeme> UsersMemeAdded;
         public event Action<UsersMeme> UsersMemeDeleted;
+        public event Action<Meme> MemeDeleted;
         public event Action<int> LikesChanged;
 
 
@@ -46,7 +48,7 @@ namespace ClassLibraryOfMemes
                     return context.UserMemes.ToList();
             }
         }
-        public void EditMeme(Meme editedmeme, string description, List<Group> groups)
+        public void EditMeme(Meme editedmeme, string description)
         {
             using (var context = new ContextOfMemes())
             {
@@ -59,7 +61,6 @@ namespace ClassLibraryOfMemes
                 }
                 catch (Exception)
                 {
-
                     throw new Exception("Editing was provided incorrectly.");
                 }
             }
@@ -84,7 +85,6 @@ namespace ClassLibraryOfMemes
         {
             using (var context = new ContextOfMemes())
             {
-           
                 try
                 {
                     context.Memes.Add(meme);
@@ -101,7 +101,6 @@ namespace ClassLibraryOfMemes
         {
             using (var context = new ContextOfMemes())
             {
-               
                 try
                 {
                     context.Groups.Add(group);
@@ -114,6 +113,7 @@ namespace ClassLibraryOfMemes
                 }
             }
         }
+
         public void DeleteGroup(Group group)
         {
             using (var context = new ContextOfMemes())
@@ -126,24 +126,24 @@ namespace ClassLibraryOfMemes
                 }
                 catch (Exception)
                 {
-
                     throw new Exception("No delete was provided succesfully.");
                 }
             }
         }
-      
 
-        public string GettingImagePath(string relativePath)
+        public string GetImagePath(string relativePath)
         {
+            
             var appDir = AppDomain.CurrentDomain.BaseDirectory;
-            var filename = Path.Combine(appDir, relativePath);
-            return filename;
+            var filePath = Path.Combine(appDir, relativePath);
+            return filePath;
         }
+        
+
         public void AddUsersMeme(UsersMeme umeme)
         {
             using (var context = new ContextOfMemes())
             {
-
                 try
                 {
                     context.UserMemes.Add(umeme);
@@ -156,6 +156,7 @@ namespace ClassLibraryOfMemes
                 }
             }
         }
+
         public void DeleteUsersMeme(UsersMeme umeme)
         {
             using (var context = new ContextOfMemes())
@@ -169,12 +170,34 @@ namespace ClassLibraryOfMemes
                 }
                 catch (Exception)
                 {
-
                     throw new Exception("No delete was provided succesfully.");
                 }
             }
         }
-     
+
+        public void DeleteMeme(Meme meme)
+        {
+            using (var context = new ContextOfMemes())
+            {
+                try
+                {
+                    var memeInDB = context.Memes.First(m => m.Id == meme.Id);
+                    context.Memes.Remove(memeInDB);
+                    context.SaveChanges();
+                    MemeDeleted?.Invoke(meme);
+                }
+                catch (Exception)
+                {
+                    throw new Exception("No delete was provided succesfully.");
+                }
+            }
+        }
+
+        public void Likes(int likes)
+        {
+            likes++;
+           LikesChanged?.Invoke(likes);
+        }
 
     }
 }
