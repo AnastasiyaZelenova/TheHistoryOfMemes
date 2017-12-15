@@ -16,7 +16,7 @@ namespace UIOfMemes
     /// </summary>
     public partial class MainWindow : Window
     {
-        VkAuth vkAuth = new VkAuth();
+        VkAuth _vkAuth = new VkAuth();
 
         Repository _repository;
         public MainWindow(Repository repository)
@@ -25,22 +25,24 @@ namespace UIOfMemes
             _repository = repository;
             listViewMemes.ItemsSource = repository.Memes;
             listBoxGroups.ItemsSource = repository.Groups;
-       
+            _vkAuth.OnAuthorized += Authorized;
+            _vkAuth.CheckAuthorization();
             repository.UsersMemeAdded += m => listViewMemes.Items.Refresh();
             repository.GroupAdded += m => listBoxGroups.Items.Refresh();
         }
 
-        private void buttonAddMeme_Click(object sender, RoutedEventArgs e)
+        private void Authorized()
         {
-            AddMemeWindow addMemeWindow = new AddMemeWindow();
-            addMemeWindow.Show();
+            buttonAddGroup.IsEnabled = false;
+            buttonAddMeme.IsEnabled = false;
+            buttonEditGroup.IsEnabled = false;
         }
 
         private void listViewMemes_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             if (listViewMemes.SelectedIndex != -1)
             {
-                MemeWindow memeWindow = new MemeWindow(_repository, listViewMemes.SelectedItem as Meme);
+                MemeWindow memeWindow = new MemeWindow(_repository, listViewMemes.SelectedItem as Meme, _vkAuth);
                 memeWindow.Show();
             }
         }
@@ -52,7 +54,18 @@ namespace UIOfMemes
 
         private void buttonLogOut_Click(object sender, RoutedEventArgs e)
         {
-            vkAuth.ClearToken();
+            _vkAuth.ClearToken();
+        }
+
+        private void buttonAddUserMeme_Click(object sender, RoutedEventArgs e)
+        {
+            AddMemeWindow addMemeWindow = new AddMemeWindow();
+            addMemeWindow.Show();
+        }
+
+        private void buttonAddMeme_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

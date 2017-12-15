@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIOfMemes"
         mc:Ignorable="d"
-        Title="StartWindow" WindowStartupLocation="CenterScreen" Height="600" Width="800">
+        Title="Welcome" WindowStartupLocation="CenterScreen" Height="600" Width="800" >
     <Grid>
         <Image gif:ImageBehavior.AnimatedSource ="/images/TheHistoryOfMemes.gif"></Image>
     </Grid>
