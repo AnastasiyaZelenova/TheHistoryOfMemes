@@ -59,13 +59,14 @@ namespace UIOfMemes
 
         private void buttonAddUserMeme_Click(object sender, RoutedEventArgs e)
         {
-            AddMemeWindow addMemeWindow = new AddMemeWindow();
-            addMemeWindow.Show();
+            CreateMemeWindow createMeme = new CreateMemeWindow();
+            createMeme.Show();
         }
 
         private void buttonAddMeme_Click(object sender, RoutedEventArgs e)
         {
-
+            AddMemeWindow addMeme = new AddMemeWindow();
+            addMeme.Show();
         }
     }
 }

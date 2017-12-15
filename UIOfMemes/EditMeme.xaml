@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIOfMemes"
         mc:Ignorable="d"
-        Title="EditMeme" Height="500" Width="600" Background="AliceBlue">
+        Title="EditMeme" Height="500" Width="600" Background="AliceBlue" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -22,6 +22,8 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="5*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Text="Name:" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Georgia" Margin="10"/>
                 <TextBox Name="textBoxEditName" Grid.Column="1" Margin="50 10 50 0" FontFamily="Georgia" />
@@ -31,8 +33,15 @@
                 <TextBox Name="textBoxEditDescription" Grid.Column="1" Grid.Row="2" Height="200" Margin="50 10 50 0" TextWrapping="Wrap" 
                          AcceptsReturn="True" AcceptsTab="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
                          SpellCheck.IsEnabled="True" Language="ru-ru" FontSize="20" FontFamily="Georgia"/>
+                <TextBlock Text="File path" Grid.Row="3" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Georgia" Margin="10"/>
+                <TextBox Name="textBoxEditPath" Grid.Column="1" Grid.Row="3" MaxLength="5" Margin="50 10 50 0"/>
+                <WrapPanel Grid.Row="4"  Grid.Column="1" HorizontalAlignment="Center" Margin="0 10">
+                    <Button  Name="buttonEditMemeCancel" MinWidth="60" MinHeight="20" Foreground="White" Margin="10,5,10,5" Content="Cancel" Click="buttonEditMemeCancel_Click" ></Button>
+                    <Button  Name="buttonEditMemeOk" MinWidth="60" MinHeight="20" Margin="10,5,10,5" Content="OK" Foreground="White" Click="buttonEditMemeOk_Click" ></Button>
+                </WrapPanel>
             </Grid>
         </StackPanel>
+        
         
 
     </Grid>

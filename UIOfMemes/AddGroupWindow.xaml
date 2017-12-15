@@ -1,0 +1,21 @@
+﻿<Window x:Class="UIOfMemes.AddGroupWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UIOfMemes"
+        mc:Ignorable="d"
+        Title="AddGroupWindow" Height="300" Width="300" Background="AliceBlue" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Name:" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="Georgia" />
+        <TextBox Name="textBoxEditName" Grid.Row="1" VerticalAlignment="Top" Margin="30" FontFamily="Georgia" />
+        <WrapPanel Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 10">
+            <Button  Name="buttonAddGroupCancel" MinWidth="60" MinHeight="20" Foreground="White" Margin="10,5,10,5" Content="Cancel" Click="buttonAddGroupCancel_Click" ></Button>
+            <Button  Name="buttonAddGroupOk" MinWidth="60" MinHeight="20" Margin="10,5,10,5" Content="OK" Foreground="White" Click="buttonAddGroupOk_Click" ></Button>
+        </WrapPanel>
+    </Grid>
+</Window>

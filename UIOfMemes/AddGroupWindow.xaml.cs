@@ -16,28 +16,26 @@ using ClassLibraryOfMemes;
 namespace UIOfMemes
 {
     /// <summary>
-    /// Логика взаимодействия для EditMeme.xaml
+    /// Логика взаимодействия для AddGroupWindow.xaml
     /// </summary>
-    public partial class EditMeme : Window
+    public partial class AddGroupWindow : Window
     {
         Repository _repository;
-        Meme _meme;
 
-        public EditMeme(Repository repository, Meme meme)
+        public AddGroupWindow(Repository repository)
         {
             _repository = repository;
-            _meme = meme;
             InitializeComponent();
         }
 
-        private void buttonEditMemeCancel_Click(object sender, RoutedEventArgs e)
+        private void buttonAddGroupOk_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow(_repository);
+
         }
 
-        private void buttonEditMemeOk_Click(object sender, RoutedEventArgs e)
+        private void buttonAddGroupCancel_Click(object sender, RoutedEventArgs e)
         {
-
+            MainWindow mainWindow = new MainWindow(_repository);
         }
     }
 }
