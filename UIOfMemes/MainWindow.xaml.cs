@@ -68,5 +68,7 @@ namespace UIOfMemes
             AddMemeWindow addMeme = new AddMemeWindow(_repository);
             addMeme.Show();
         }
+
+        
     }
 }

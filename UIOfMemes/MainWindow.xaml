@@ -18,7 +18,7 @@
         </Grid.RowDefinitions>
         <Image Grid.ColumnSpan="2" Grid.RowSpan="3" Source="/images/background.jpg"></Image>
         <ListBox Name="listBoxGroups" ItemsSource="{Binding}" DisplayMemberPath="Name"  Grid.RowSpan="3" Margin="10 50" ></ListBox>
-        <ListView Name="listViewMemes" Grid.Row="1" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="20,30,20,0" MouseDoubleClick="listViewMemes_MouseDoubleClick">
+        <ListView Name="listViewMemes"  Grid.Row="1" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Disabled"  Margin="20,30,20,0" MouseDoubleClick="listViewMemes_MouseDoubleClick"  >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal"/>
@@ -29,16 +29,19 @@
             </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Width="180" Height="295" IsEnabled="{Binding Enabled}">
+                    <Grid MinHeight="50" IsEnabled="{Binding Enabled}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <Image Grid.Row="1" MaxHeight="240" MaxWidth="180" Source="{Binding ImagePath}"/>
+                        <Image Grid.Row="1" Margin="5 10" Source="{Binding ImagePath}"/>
                         <TextBlock  HorizontalAlignment="Center" Text="{Binding Name}"/>
                     </Grid>
                 </DataTemplate>
+                
             </ListView.ItemTemplate>
+            
+
         </ListView>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 30" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top">
             <Button Name="buttonAddMeme" Content="Add meme" Margin="5" MinHeight="40" MinWidth="70" IsEnabled="True"   Click="buttonAddMeme_Click" ></Button>
@@ -54,5 +57,6 @@
             <Image Source="images/exit.png" Height="30" Width="30" ></Image>
             <Button Name="buttonLogOut"   Content="Log Out" MinWidth="60" MinHeight="20" Click="buttonLogOut_Click"></Button>
         </DockPanel>
+        
     </Grid>
 </Window>
