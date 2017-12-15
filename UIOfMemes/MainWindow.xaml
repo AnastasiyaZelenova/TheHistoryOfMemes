@@ -18,7 +18,7 @@
         </Grid.RowDefinitions>
         <Image Grid.ColumnSpan="2" Grid.RowSpan="3" Source="/images/background.jpg"></Image>
         <ListBox Name="listBoxGroups" ItemsSource="{Binding}" DisplayMemberPath="Name"  Grid.RowSpan="3" Margin="10 50" ></ListBox>
-        <ListView Name="listViewMemes" Grid.Row="1" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="20,30,20,0" MouseDoubleClick="listViewMemes_MouseDoubleClick">
+        <ListView Name="listViewMemes" Grid.Row="1" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="20,30,20,0">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal"/>
@@ -39,7 +39,7 @@
                         </Grid.RowDefinitions>
 
                         
-                        <Image Grid.Row="1" Source="{Binding ImagePath}"/>
+                        <Image x:Name="ListViewImage" Grid.Row="1" Source="{Binding ImagePath}"/>
                         <TextBlock  HorizontalAlignment="Center" Text="{Binding Name}"/>
                     </Grid>
                 </DataTemplate>

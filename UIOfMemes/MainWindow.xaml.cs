@@ -23,6 +23,7 @@ namespace UIOfMemes
             InitializeComponent();
             this.repository = repository;
            
+             
 
             listViewMemes.ItemsSource = repository.Memes;
             listBoxGroups.ItemsSource = repository.Groups;
