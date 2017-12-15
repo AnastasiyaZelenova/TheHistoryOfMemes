@@ -23,14 +23,25 @@ namespace UIOfMemes
     {
         Repository _repository;
         Meme _meme;
-        public MemeWindow(Repository repository, Meme meme)
+        VkAuth _vkAuth;
+        public MemeWindow(Repository repository, Meme meme, VkAuth vkAuth)
         {
             _repository = repository;
             _meme = meme;
+            _vkAuth = vkAuth;
             InitializeComponent();
+            _vkAuth.OnAuthorized += Authorized;
+            _vkAuth.CheckAuthorization();
             imageMeme.Source = new BitmapImage(new Uri(meme.ImagePath, UriKind.RelativeOrAbsolute));
             textBlockDescription.Text = meme.Description;
+            textBlockMemYear.Text = (meme.Year).ToString();
             textBlockLikes.Text = (meme.Likes).ToString();
+        }
+
+        private void Authorized()
+        {
+            buttonDeleteMeme.IsEnabled = false;
+            buttonEditMeme.IsEnabled = false;
         }
 
         private void buttonDeleteMeme_Click(object sender, RoutedEventArgs e)

@@ -61,7 +61,6 @@ namespace ClassLibraryOfMemes
                 }
                 catch (Exception)
                 {
-
                     throw new Exception("Editing was provided incorrectly.");
                 }
             }
@@ -86,7 +85,6 @@ namespace ClassLibraryOfMemes
         {
             using (var context = new ContextOfMemes())
             {
-           
                 try
                 {
                     context.Memes.Add(meme);
@@ -103,7 +101,6 @@ namespace ClassLibraryOfMemes
         {
             using (var context = new ContextOfMemes())
             {
-               
                 try
                 {
                     context.Groups.Add(group);

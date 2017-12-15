@@ -5,8 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIOfMemes"
         mc:Ignorable="d"
-        Title="EditMeme" Height="600" Width="400">
+        Title="EditMeme" Height="500" Width="600" Background="AliceBlue">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Here you can edit your meme." HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Georgia" FontSize="30"></TextBlock>
+        <StackPanel Grid.Row="1" Orientation="Vertical">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="5*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Name:" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Georgia" Margin="10"/>
+                <TextBox Name="textBoxEditName" Grid.Column="1" Margin="50 10 50 0" FontFamily="Georgia" />
+                <TextBlock Text="Year:" Grid.Row="1" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Georgia" Margin="10"/>
+                <TextBox Name="textBoxEditYear" Grid.Column="1" Grid.Row="1" MaxLength="5" Margin="50 10 50 0"/>
+                <TextBlock Text="Description:" Grid.Row="2" FontSize="20" HorizontalAlignment="Center" FontFamily="Georgia" VerticalAlignment="Top" Margin="10"/>
+                <TextBox Name="textBoxEditDescription" Grid.Column="1" Grid.Row="2" Height="200" Margin="50 10 50 0" TextWrapping="Wrap" 
+                         AcceptsReturn="True" AcceptsTab="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+                         SpellCheck.IsEnabled="True" Language="ru-ru" FontSize="20" FontFamily="Georgia"/>
+            </Grid>
+        </StackPanel>
         
+
     </Grid>
 </Window>
