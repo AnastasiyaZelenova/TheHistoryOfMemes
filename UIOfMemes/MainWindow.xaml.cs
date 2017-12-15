@@ -65,7 +65,7 @@ namespace UIOfMemes
 
         private void buttonAddMeme_Click(object sender, RoutedEventArgs e)
         {
-            AddMemeWindow addMeme = new AddMemeWindow();
+            AddMemeWindow addMeme = new AddMemeWindow(_repository);
             addMeme.Show();
         }
     }
