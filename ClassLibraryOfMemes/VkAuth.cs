@@ -40,7 +40,7 @@ namespace ClassLibraryOfMemes
 
         public void ClearToken()
         {
-            File.Delete(TokenFile);
+            File.WriteAllText(TokenFile, string.Empty);
         }
 
         // Save the token to a file
