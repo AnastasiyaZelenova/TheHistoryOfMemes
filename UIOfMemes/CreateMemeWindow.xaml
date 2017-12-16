@@ -13,11 +13,10 @@
         </Grid.ColumnDefinitions>
         <InkCanvas Name="inkCanvasPaint"  />
         <StackPanel Orientation="Vertical" VerticalAlignment="Top"  Grid.Column="1" >
-            <DockPanel Margin="0,30,0,10" Height="30" >
-                <Button Name="buttonClear" Content="Clear" FontSize="15" MinHeight="20" MinWidth="50" Margin="5 0" Click="buttonClear_Click" ></Button>
-
-                <Button Name="buttonSave" Content="Save"  FontSize="15" MinHeight="20" MinWidth="30" Margin="5 0" Click="buttonSave_Click"></Button>
-            </DockPanel>
+            <WrapPanel Margin="0,30,0,10" Height="30" HorizontalAlignment="Center" >
+                <Button Name="buttonClear" Content="Clear" FontSize="15" MinHeight="20" MinWidth="70" Margin="5 0"  HorizontalAlignment="Center" Click="buttonClear_Click" ></Button>
+                <Button Name="buttonSave" Content="Save"  FontSize="15" MinHeight="20" MinWidth="70" Margin="5 0"  HorizontalAlignment="Center" Click="buttonSave_Click"></Button>
+            </WrapPanel>
             <Slider Name="sldGreen" Background="Green" Minimum="0" Maximum="255" Margin="10 5" ValueChanged="sldColor_ValueChanged"/>
             <Slider Name="sldRed" Background="Red" Minimum="0" Maximum="255" Margin="10 5" ValueChanged="sldColor_ValueChanged"/>
             <Slider Name="sldBlue" Background="Blue" Minimum="0" Maximum="255" Margin="10 5" ValueChanged="sldColor_ValueChanged"/>
