@@ -21,7 +21,7 @@ namespace ClassLibraryOfMemes
         public event Action<UsersMeme> UsersMemeAdded;
         public event Action<UsersMeme> UsersMemeDeleted;
         public event Action<Meme> MemeDeleted;
-        public event Action<int> LikesChanged;
+        public event Action<int> OnLikesChanged;
 
 
         public IEnumerable<Meme> Memes
@@ -48,6 +48,8 @@ namespace ClassLibraryOfMemes
                     return context.UserMemes.ToList();
             }
         }
+
+
         public void EditMeme(Meme editedmeme, string name, int year, string description, string imagePath)
         {
             using (var context = new ContextOfMemes())
@@ -196,10 +198,18 @@ namespace ClassLibraryOfMemes
             }
         }
 
-        public void Likes(int likes)
+        public int IncreaseLikes(int likes, Meme meme)
         {
-            likes++;
-           LikesChanged?.Invoke(likes);
+            using (var context = new ContextOfMemes())
+            {
+                var memeInDB = context.Memes.First(m => m.Id == meme.Id);
+                memeInDB.Likes =  likes++;
+                OnLikesChanged?.Invoke(likes);
+                context.SaveChanges();
+
+                return likes;
+            }
+                
         }
 
     }

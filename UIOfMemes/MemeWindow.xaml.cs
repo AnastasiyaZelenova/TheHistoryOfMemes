@@ -16,6 +16,7 @@ using System.Drawing;
 
 namespace UIOfMemes
 {
+    public delegate void LikesUpdateCallBack(int likesCount);
     /// <summary>
     /// Логика взаимодействия для MemeWindow.xaml
     /// </summary>
@@ -24,6 +25,8 @@ namespace UIOfMemes
         Repository _repository;
         Meme _meme;
         VkAuth _vkAuth;
+        public event LikesUpdateCallBack OnLikesChanged;
+
         public MemeWindow(Repository repository, Meme meme, VkAuth vkAuth)
         {
             _repository = repository;
@@ -32,16 +35,23 @@ namespace UIOfMemes
             InitializeComponent();
             _vkAuth.OnAuthorized += Authorized;
             _vkAuth.CheckAuthorization();
+            _repository.OnLikesChanged += UpdateLikes;
             imageMeme.Source = new BitmapImage(new Uri(meme.ImagePath, UriKind.RelativeOrAbsolute));
             textBlockDescription.Text = meme.Description;
             textBlockMemYear.Text = (meme.Year).ToString();
             textBlockLikes.Text = (meme.Likes).ToString();
+            
         }
 
         private void Authorized()
         {
             buttonDeleteMeme.IsEnabled = false;
             buttonEditMeme.IsEnabled = false;
+        }
+
+        public void UpdateLikes(int likes)
+        {
+            textBlockLikes.Text = $"{likes}";
         }
 
         private void buttonDeleteMeme_Click(object sender, RoutedEventArgs e)
@@ -61,7 +71,7 @@ namespace UIOfMemes
 
         private void buttonLikes_Click(object sender, RoutedEventArgs e)
         {
-             _repository.Likes(int.Parse(textBlockLikes.Text));
+            _meme.Likes =  _repository.IncreaseLikes(_meme.Likes, _meme );
         }
     }
 }
