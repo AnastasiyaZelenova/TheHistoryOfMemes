@@ -16,11 +16,9 @@ namespace ClassLibraryOfMemes
 {
     public class Repository
     {
-        public event Action<Meme> MemeAdded;
-        public event Action<Group> GroupAdded;
-        public event Action<UsersMeme> UsersMemeAdded;
-        public event Action<UsersMeme> UsersMemeDeleted;
-        public event Action<Meme> MemeDeleted;
+        public event Action<Meme> MemesChanged;
+        public event Action<Group> GroupsChanged;
+        public event Action<UsersMeme> UsersMemesChanged;
         public event Action<int> OnLikesChanged;
 
 
@@ -61,7 +59,7 @@ namespace ClassLibraryOfMemes
                     context.Memes.ToList().Find(m => m.Id == editedmeme.Id).Description = description;
                     context.Memes.ToList().Find(m => m.Id == editedmeme.Id).ImagePath = imagePath;
                     context.SaveChanges();
-                    MemeAdded?.Invoke(editedmeme);
+                    MemesChanged?.Invoke(editedmeme);
                 }
                 catch (Exception)
                 {
@@ -78,7 +76,7 @@ namespace ClassLibraryOfMemes
                     context.Groups.ToList().Find(g => g.Id == group.Id).Url = url;
                     context.Groups.ToList().Find(g => g.Id == group.Id).Name = name;
                     context.SaveChanges();
-                    GroupAdded?.Invoke(group);
+                    GroupsChanged?.Invoke(group);
                 }
                 catch (Exception)
                 {
@@ -94,7 +92,7 @@ namespace ClassLibraryOfMemes
                 {
                     context.Memes.Add(meme);
                     context.SaveChanges();
-                    MemeAdded?.Invoke(meme);
+                    MemesChanged?.Invoke(meme);
                 }
                 catch (Exception)
                 {
@@ -110,7 +108,7 @@ namespace ClassLibraryOfMemes
                 {
                     context.Groups.Add(group);
                     context.SaveChanges();
-                    GroupAdded?.Invoke(group);
+                    GroupsChanged?.Invoke(group);
                 }
                 catch (Exception)
                 {
@@ -128,6 +126,7 @@ namespace ClassLibraryOfMemes
                     var groupInDB = context.Groups.First(g => g.Id == group.Id);
                     context.Groups.Remove(groupInDB);
                     context.SaveChanges();
+                    GroupsChanged?.Invoke(group);
                 }
                 catch (Exception)
                 {
@@ -153,7 +152,7 @@ namespace ClassLibraryOfMemes
                 {
                     context.UserMemes.Add(umeme);
                     context.SaveChanges();
-                    UsersMemeAdded?.Invoke(umeme);
+                    UsersMemesChanged?.Invoke(umeme);
                 }
                 catch (Exception)
                 {
@@ -171,7 +170,7 @@ namespace ClassLibraryOfMemes
                     var umemeInDB = context.UserMemes.First(m => m.Id == umeme.Id);
                     context.UserMemes.Remove(umemeInDB);
                     context.SaveChanges();
-                    UsersMemeDeleted?.Invoke(umeme);
+                    UsersMemesChanged?.Invoke(umeme);
                 }
                 catch (Exception)
                 {
@@ -189,7 +188,7 @@ namespace ClassLibraryOfMemes
                     var memeInDB = context.Memes.First(m => m.Id == meme.Id);
                     context.Memes.Remove(memeInDB);
                     context.SaveChanges();
-                    MemeDeleted?.Invoke(meme);
+                    MemesChanged?.Invoke(meme);
                 }
                 catch (Exception)
                 {
