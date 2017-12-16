@@ -17,14 +17,27 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Image Grid.ColumnSpan="2" Grid.RowSpan="3" Source="/images/background.jpg"></Image>
-        <ListView Name="listViewGroups" ItemsSource="{Binding}" DisplayMemberPath="Name"  Grid.RowSpan="3" Margin="10 50 10 70" >
+        <ListView Name="listViewGroups"  ItemsSource="{Binding}" DisplayMemberPath="Name"  Grid.RowSpan="3" Margin="10 50 10 70" MouseDoubleClick="listViewGroups_MouseDoubleClick" >
             <ListView.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Name="menuItemDeleteGroup" Header="Delete" Click="menuItemDeleteGroup_Click"  ></MenuItem>
+                    <MenuItem Name="menuItemDeleteGroup" Header="Delete" IsEnabled="True" Click="menuItemDeleteGroup_Click"  >
+                        <MenuItem.Icon>
+                            <Image Source="/images/delete.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
                     <Separator></Separator>
-                    <MenuItem Name="menuItemEditGroup" Header="Edit" Click="menuItemEditGroup_Click" ></MenuItem>
+                    <MenuItem Name="menuItemEditGroup" Header="Edit" IsEnabled="True" Click="menuItemEditGroup_Click" >
+                        <MenuItem.Icon>
+                            <Image Source="/images/edit.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
                 </ContextMenu>
             </ListView.ContextMenu>
+            <ListView.ToolTip>
+                <ToolTip Width="150" Background="#90004455" HasDropShadow ="True">
+                    <TextBlock TextWrapping="Wrap" Foreground="White">You can double-click to open community in VK</TextBlock>
+                </ToolTip>
+            </ListView.ToolTip>
         </ListView>
         <ListView Name="listViewMemes"  Grid.Row="1" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Disabled"  Margin="20,30,20,0" MouseDoubleClick="listViewMemes_MouseDoubleClick"  >
             <ListView.ItemsPanel>
@@ -46,16 +59,11 @@
                         <TextBlock  HorizontalAlignment="Center" Text="{Binding Name}"/>
                     </Grid>
                 </DataTemplate>
-
             </ListView.ItemTemplate>
-
-
         </ListView>
         <Button Name="buttonAddGroup" Content="Add group" Foreground="White" Margin="0,50,0,20" MaxHeight="30" Grid.Row="2" IsEnabled="True" MinWidth="100" HorizontalAlignment="Center" ></Button>
-
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 30"  Grid.Column="1" Grid.Row="2" VerticalAlignment="Top">
             <Button Name="buttonAddMeme" Content="Add meme" Margin="5" MinHeight="40" MinWidth="70" IsEnabled="True"   Click="buttonAddMeme_Click" ></Button>
-            <Button Name="buttonEditGroup" Content="Edit group" Margin="5" IsEnabled="True" MinHeight="40" MinWidth="70" ></Button>
             <Button Name="buttonAddUserMeme" Content="Paint meme" Margin="5" MinHeight="40" IsEnabled="True" MinWidth="70" Click="buttonAddUserMeme_Click" ></Button>
         </StackPanel>
         <DockPanel Grid.Column="1" Margin="50 50 50 0" >
