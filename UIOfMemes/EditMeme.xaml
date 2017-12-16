@@ -5,19 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIOfMemes"
         mc:Ignorable="d"
-        Title="EditMeme" Height="450" Width="500" Background="AliceBlue" WindowStartupLocation="CenterScreen">
+        Title="EditMeme" Height="450" Width="500" Background="AliceBlue"  WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="4.5*"/>
         </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="images/ana.jpg"></ImageBrush>
+        </Grid.Background>
         <TextBlock Text="Here you can edit your meme." HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Georgia" FontSize="30"></TextBlock>
         <StackPanel Grid.Row="1" Orientation="Vertical">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="2.8*"/>
                 </Grid.ColumnDefinitions>
+                
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
@@ -25,6 +29,7 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
+                
                 <TextBlock Text="Name:" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Georgia" Margin="10"/>
                 <TextBox Name="textBoxEditName" Grid.Column="1" Margin="50 10 50 0" VerticalAlignment="Center" FontFamily="Georgia" />
                 <TextBlock Text="Year:" Grid.Row="1" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Georgia" Margin="10"/>

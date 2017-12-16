@@ -47,7 +47,6 @@ namespace ClassLibraryOfMemes
             }
         }
 
-
         public void EditMeme(Meme editedmeme, string name, int year, string description, string imagePath)
         {
             using (var context = new ContextOfMemes())
@@ -205,12 +204,9 @@ namespace ClassLibraryOfMemes
                 memeInDB.Likes =  likes++;
                 OnLikesChanged?.Invoke(likes);
                 context.SaveChanges();
-
                 return likes;
             }
-                
         }
-
     }
 }
 

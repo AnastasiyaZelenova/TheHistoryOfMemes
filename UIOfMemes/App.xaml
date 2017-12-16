@@ -11,7 +11,7 @@
                     <ControlTemplate TargetType="Button">
                         <Border CornerRadius="15"  Height="{TemplateBinding Height}">
                             <Border.Background>
-                                <SolidColorBrush x:Name="BorderColor" Color="#FF69B6EB"/>
+                                <SolidColorBrush x:Name="BorderColor" Color="White"/>
                             </Border.Background>
                             <ContentControl Margin="{TemplateBinding Padding}" 
                     HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -22,13 +22,13 @@
                                     <VisualState Name="MouseOver">
                                         <Storyboard>
                                             <ColorAnimation Storyboard.TargetName="BorderColor"
-                                    Storyboard.TargetProperty="Color" To="DodgerBlue" />
+                                    Storyboard.TargetProperty="Color" To="DeepSkyBlue" />
                                         </Storyboard>
                                     </VisualState>
                                     <VisualState Name="Normal">
                                         <Storyboard>
                                             <ColorAnimation Storyboard.TargetName="BorderColor"
-                                    Storyboard.TargetProperty="Color" To="SkyBlue" />
+                                    Storyboard.TargetProperty="Color" To="CornflowerBlue" />
                                         </Storyboard>
                                     </VisualState>
                                 </VisualStateGroup>
@@ -145,6 +145,5 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
     </Application.Resources>
 </Application>

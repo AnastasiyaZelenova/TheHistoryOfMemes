@@ -40,7 +40,6 @@ namespace UIOfMemes
             textBlockDescription.Text = meme.Description;
             textBlockMemYear.Text = (meme.Year).ToString();
             textBlockLikes.Text = (meme.Likes).ToString();
-            
         }
 
         private void Authorized()

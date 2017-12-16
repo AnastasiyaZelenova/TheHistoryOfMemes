@@ -8,17 +8,21 @@
         Title="EditGroupWindow" Height="450" Width="500" Background="AliceBlue" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.2*"/>
-            <RowDefinition Height="0.7*"/>
-            <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="images/ana.jpg"></ImageBrush>
+        </Grid.Background>
+        <TextBlock Text="Here you can edit group." HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Georgia" FontSize="30"></TextBlock>
         <TextBlock Text="Name:" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="Georgia" />
-        <TextBox Name="textBoxEditName" Grid.Row="1" VerticalAlignment="Top" Margin="80 20" FontFamily="Georgia" />
+        <TextBox Name="textBoxEditName" Grid.Row="1" VerticalAlignment="Top" Margin="90 20" FontFamily="Georgia" />
         <TextBlock Text="Url:" FontSize="20" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Georgia" />
-        <TextBox Name="textBoxEditUrl" Grid.Row="3" VerticalAlignment="Top" Margin="80 20" FontFamily="Georgia" />
-        <WrapPanel Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 20">
+        <TextBox Name="textBoxEditUrl" Grid.Row="3" VerticalAlignment="Top" Margin="90 20" FontFamily="Georgia" />
+        <WrapPanel Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 20">
             <Button  Name="buttonEditGroupCancel" MinWidth="80" MinHeight="30" Foreground="White" Margin="10,5,10,5" Content="Cancel" Click="buttonEditGroupCancel_Click"  ></Button>
             <Button  Name="buttonEditGroupOk" MinWidth="80" MinHeight="30" Margin="10,5,10,5" Content="OK" Foreground="White" Click="buttonEditGroupOk_Click"  ></Button>
         </WrapPanel>

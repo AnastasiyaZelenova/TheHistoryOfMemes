@@ -8,17 +8,21 @@
         Title="AddGroupWindow" Height="450" Width="500" Background="AliceBlue" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.2*"/>
-            <RowDefinition Height="0.7*"/>
-            <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="images/ana.jpg"></ImageBrush>
+        </Grid.Background>
+        <TextBlock Text="Here you can add group." HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Georgia" FontSize="30"></TextBlock>
         <TextBlock Text="Name:" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="Georgia" />
-        <TextBox Name="textBoxAddName" Grid.Row="1" VerticalAlignment="Top" Margin="60 20" FontFamily="Georgia" />
-        <TextBlock Text="Url:" FontSize="20" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Georgia" Margin="226,28,230,0" />
-        <TextBox Name="textBoxAddUrl" Grid.Row="3" VerticalAlignment="Top" Margin="60 20" FontFamily="Georgia" />
-        <WrapPanel Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 20">
+        <TextBox Name="textBoxAddName" Grid.Row="1" VerticalAlignment="Top" Margin="90 20" FontSize="15" FontFamily="Georgia" />
+        <TextBlock Text="Url:" FontSize="20" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="Georgia"  />
+        <TextBox Name="textBoxAddUrl" Grid.Row="3" VerticalAlignment="Top" Margin="90 20" FontFamily="Georgia" FontSize="15" />
+        <WrapPanel Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 20">
             <Button  Name="buttonAddGroupCancel" MinWidth="80" MinHeight="30" Foreground="White" Margin="10,5,10,5" Content="Cancel" Click="buttonAddGroupCancel_Click" ></Button>
             <Button  Name="buttonAddGroupOk" MinWidth="80" MinHeight="30" Margin="10,5,10,5" Content="OK" Foreground="White" Click="buttonAddGroupOk_Click" ></Button>
         </WrapPanel>
