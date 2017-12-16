@@ -78,6 +78,7 @@ namespace UIOfMemes
                     Likes = 0
                 };
                 repository.AddUsersMeme(meme);
+                Close();
             }
         }
 

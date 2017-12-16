@@ -28,16 +28,27 @@ namespace UIOfMemes
             _repository = repository;
             _meme = meme;
             InitializeComponent();
+
         }
 
         private void buttonEditMemeCancel_Click(object sender, RoutedEventArgs e)
         {
+            Close();
             MainWindow mainWindow = new MainWindow(_repository);
         }
 
         private void buttonEditMemeOk_Click(object sender, RoutedEventArgs e)
         {
-
+            _meme = new Meme
+            {
+                Name = textBoxEditName.Text,
+                Description = textBoxEditDescription.Text,
+                Year = int.Parse(textBoxEditYear.Text),
+                ImagePath = textBoxEditPath.Text
+            };
+            _repository.AddMeme(_meme);
+            Close();
+            MainWindow mainWindow = new MainWindow(_repository);
         }
     }
 }

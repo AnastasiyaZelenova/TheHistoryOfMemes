@@ -194,5 +194,13 @@
   <ItemGroup>
     <Resource Include="images\like.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Memes\GrumpyCat.jpg" />
+    <Resource Include="Memes\Harold.jpg" />
+    <Resource Include="Memes\MeGusta.jpg" />
+    <Resource Include="Memes\PepeTheFrog.jpg" />
+    <Resource Include="Memes\TonyStarkFace.jpg" />
+    <Resource Include="Memes\Vzhukh.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

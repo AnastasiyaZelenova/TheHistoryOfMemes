@@ -38,7 +38,7 @@
                     "в паблике 4ch и завоевал Интернет.",
                     Year = 2010,
                     Likes = 0,
-                    ImagePath = "MeGusta.jpg"
+                    ImagePath = "/Memes/MeGusta.jpg"
                 },
                 new Meme
                 {
@@ -53,7 +53,7 @@
                     "картинке с лягушонком просто добавляют жизненную надпись о чем-то печальном.",
                     Year = 2005,
                     Likes = 0,
-                    ImagePath = "PepeTheFrog.jpg"
+                    ImagePath = "/Memes/PepeTheFrog.jpg"
                 },
                 new Meme
                 {
@@ -71,7 +71,7 @@
                     "верифицировало сообщество Hide The Pain Harold & Co.",
                     Year = 2011,
                     Likes = 0,
-                    ImagePath = "Harold.jpg"
+                    ImagePath = "/Memes/Harold.jpg"
                 },
                 new Meme
                 {
@@ -88,7 +88,7 @@
                     "2016 года в сообществе MIG. Уже оттуда мем разлетелся по всем пабликам и стал мегапопулярным к концу декабря.",
                     Year = 2016,
                     Likes = 0,
-                    ImagePath = "Vzhukh.jpg"
+                    ImagePath = "/Memes/Vzhukh.jpg"
                 },
                 new Meme
                 {
@@ -106,7 +106,7 @@
                     "культурным феноменом, сходство с которым стали искать в других животных и людях.",
                     Year = 2013,
                     Likes = 0,
-                    ImagePath = "GrumpyCat.jpg"
+                    ImagePath = "/Memes/GrumpyCat.jpg"
                 },
                 new Meme
                 {
@@ -120,7 +120,7 @@
                     "картинка появилась в пабликах \"ВКонкакте\" и стала широко использоваться в рунете благодаря \"Пикабу\".",
                     Year = 2012,
                     Likes = 0,
-                    ImagePath = "TonyStarkFace.jpg"
+                    ImagePath = "/Memes/TonyStarkFace.jpg"
                 }
             };
 
