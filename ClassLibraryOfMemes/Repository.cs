@@ -134,15 +134,6 @@ namespace ClassLibraryOfMemes
             }
         }
 
-        public string GetImagePath(string relativePath)
-        {
-            
-            var appDir = AppDomain.CurrentDomain.BaseDirectory;
-            var filePath = Path.Combine(appDir, relativePath);
-            return filePath;
-        }
-        
-
         public void AddUsersMeme(UsersMeme umeme)
         {
             using (var context = new ContextOfMemes())

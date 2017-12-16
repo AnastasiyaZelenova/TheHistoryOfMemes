@@ -215,5 +215,23 @@
   <ItemGroup>
     <Resource Include="images\edit.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Memes\MyStation.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Memes\ShutterIsland.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Memes\Drake.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Memes\DisloyalMan.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Memes\RollSafe.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Memes\SneakyTom.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
