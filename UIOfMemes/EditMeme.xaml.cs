@@ -28,6 +28,11 @@ namespace UIOfMemes
             _repository = repository;
             _meme = meme;
             InitializeComponent();
+            textBoxEditDescription.Text = meme.Description;
+            textBoxEditName.Text = meme.Name;
+            textBoxEditPath.Text = meme.ImagePath;
+            textBoxEditYear.Text = meme.Year.ToString();
+            
 
         }
 
@@ -39,14 +44,8 @@ namespace UIOfMemes
 
         private void buttonEditMemeOk_Click(object sender, RoutedEventArgs e)
         {
-            _meme = new Meme
-            {
-                Name = textBoxEditName.Text,
-                Description = textBoxEditDescription.Text,
-                Year = int.Parse(textBoxEditYear.Text),
-                ImagePath = textBoxEditPath.Text
-            };
-            _repository.AddMeme(_meme);
+           
+            _repository.EditMeme(_meme, textBoxEditName.Text, int.Parse(textBoxEditYear.Text), textBoxEditDescription.Text, textBoxEditPath.Text);
             Close();
             MainWindow mainWindow = new MainWindow(_repository);
         }

@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
         <TextBlock Text="Name:" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="Georgia" />
         <TextBox Name="textBoxAddName" Grid.Row="1" VerticalAlignment="Top" Margin="60 20" FontFamily="Georgia" />
-        <TextBlock Text="Url:" FontSize="20" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Georgia" />
+        <TextBlock Text="Url:" FontSize="20" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Georgia" Margin="226,28,230,0" />
         <TextBox Name="textBoxAddUrl" Grid.Row="3" VerticalAlignment="Top" Margin="60 20" FontFamily="Georgia" />
         <WrapPanel Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 20">
             <Button  Name="buttonAddGroupCancel" MinWidth="80" MinHeight="30" Foreground="White" Margin="10,5,10,5" Content="Cancel" Click="buttonAddGroupCancel_Click" ></Button>

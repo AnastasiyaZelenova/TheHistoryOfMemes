@@ -56,6 +56,7 @@ namespace UIOfMemes
         {
             EditMeme editMeme = new EditMeme(_repository, _meme);
             editMeme.Show();
+            Close();
         }
 
         private void buttonLikes_Click(object sender, RoutedEventArgs e)

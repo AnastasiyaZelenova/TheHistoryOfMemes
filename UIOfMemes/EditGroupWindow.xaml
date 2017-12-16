@@ -19,8 +19,8 @@
         <TextBlock Text="Url:" FontSize="20" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Georgia" />
         <TextBox Name="textBoxEditUrl" Grid.Row="3" VerticalAlignment="Top" Margin="80 20" FontFamily="Georgia" />
         <WrapPanel Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 20">
-            <Button  Name="buttonEditGroupCancel" MinWidth="80" MinHeight="30" Foreground="White" Margin="10,5,10,5" Content="Cancel"  ></Button>
-            <Button  Name="buttonEditGroupOk" MinWidth="80" MinHeight="30" Margin="10,5,10,5" Content="OK" Foreground="White"  ></Button>
+            <Button  Name="buttonEditGroupCancel" MinWidth="80" MinHeight="30" Foreground="White" Margin="10,5,10,5" Content="Cancel" Click="buttonEditGroupCancel_Click"  ></Button>
+            <Button  Name="buttonEditGroupOk" MinWidth="80" MinHeight="30" Margin="10,5,10,5" Content="OK" Foreground="White" Click="buttonEditGroupOk_Click"  ></Button>
         </WrapPanel>
     </Grid>
 </Window>
