@@ -30,7 +30,13 @@ namespace UIOfMemes
 
         private void buttonAddGroupOk_Click(object sender, RoutedEventArgs e)
         {
-
+            Group group = new Group
+            {
+                Name = textBoxAddName.Text,
+                Url = textBoxAddUrl.Text
+            };
+            _repository.AddGroup(group);
+            Close();
         }
 
         private void buttonAddGroupCancel_Click(object sender, RoutedEventArgs e)

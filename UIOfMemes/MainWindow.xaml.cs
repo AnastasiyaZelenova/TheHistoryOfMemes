@@ -25,9 +25,9 @@ namespace UIOfMemes
             _repository = repository;
             
             listViewMemes.ItemsSource = repository.Memes;
-            listViewMemes.Items.Refresh();
+            
             listViewGroups.ItemsSource = repository.Groups;
-            listViewGroups.Items.Refresh();
+            
             _vkAuth.OnAuthorized += Authorized;
             _vkAuth.CheckAuthorization();
             WriteUserName();
@@ -83,12 +83,12 @@ namespace UIOfMemes
 
         private void menuItemDeleteGroup_Click(object sender, RoutedEventArgs e)
         {
-
+            _repository.DeleteGroup(listViewGroups.SelectedItem as Group);
         }
 
         private void menuItemEditGroup_Click(object sender, RoutedEventArgs e)
         {
-            EditGroupWindow editGroup = new EditGroupWindow();
+            EditGroupWindow editGroup = new EditGroupWindow(listViewGroups.SelectedItem as Group, _repository);
             editGroup.Show();
         }
     
@@ -96,6 +96,20 @@ namespace UIOfMemes
         {
             Group selectedGroup = listViewGroups.SelectedItem as Group;
             System.Diagnostics.Process.Start(selectedGroup.Url); 
+        }
+
+        private void buttonAddGroup_Click(object sender, RoutedEventArgs e)
+        {
+            AddGroupWindow addGroup = new AddGroupWindow(_repository);
+            addGroup.Show();
+        }
+
+        private void buttonRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            listViewGroups.ItemsSource = _repository.Groups;
+            listViewMemes.ItemsSource = _repository.Memes;
+            listViewGroups.Items.Refresh();
+            listViewMemes.Items.Refresh();
         }
     }
 }

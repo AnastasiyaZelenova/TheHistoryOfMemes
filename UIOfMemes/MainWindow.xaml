@@ -51,12 +51,13 @@
 
 
         </ListView>
-        <Button Name="buttonAddGroup" Content="Add group" Foreground="White" Margin="0,50,0,20" MaxHeight="30" Grid.Row="2" IsEnabled="True" MinWidth="100" HorizontalAlignment="Center" ></Button>
+        <Button Name="buttonAddGroup" Content="Add group" Foreground="White" Margin="0,50,0,20" MaxHeight="30" Grid.Row="2" IsEnabled="True" MinWidth="100" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.659" Click="buttonAddGroup_Click" ></Button>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 30"  Grid.Column="1" Grid.Row="2" VerticalAlignment="Top">
             <Button Name="buttonAddMeme" Content="Add meme" Margin="5" MinHeight="40" MinWidth="70" IsEnabled="True"   Click="buttonAddMeme_Click" ></Button>
-            <Button Name="buttonEditGroup" Content="Edit group" Margin="5" IsEnabled="True" MinHeight="40" MinWidth="70" ></Button>
+            <Button Name="buttonEditGroup" Content="Edit group" Margin="5" IsEnabled="True" MinHeight="40" MinWidth="70"></Button>
             <Button Name="buttonAddUserMeme" Content="Paint meme" Margin="5" MinHeight="40" IsEnabled="True" MinWidth="70" Click="buttonAddUserMeme_Click" ></Button>
+            <Button Name="buttonRefresh" Content="Refresh" Margin="5" MinHeight="40" IsEnabled="True" MinWidth="70" Click="buttonRefresh_Click" ></Button>
         </StackPanel>
         <DockPanel Grid.Column="1" Margin="50 50 50 0" >
             <Image x:Name="image1" Source="images/search.png" Height="30" Width="30" />

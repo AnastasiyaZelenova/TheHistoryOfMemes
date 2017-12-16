@@ -48,16 +48,18 @@ namespace ClassLibraryOfMemes
                     return context.UserMemes.ToList();
             }
         }
-        public void EditMeme(Meme editedmeme, string description)
+        public void EditMeme(Meme editedmeme, string name, int year, string description, string imagePath)
         {
             using (var context = new ContextOfMemes())
             {
                 try
                 {
-                    var memetoedit = context.Memes.ToList().Find(m => m.Id == editedmeme.Id);
-                    memetoedit.Description = editedmeme.Description;
-                    //memetoedit.Groups = editedmeme.Groups;
+                    context.Memes.ToList().Find(m => m.Id == editedmeme.Id).Name = name;
+                    context.Memes.ToList().Find(m => m.Id == editedmeme.Id).Year = year;
+                    context.Memes.ToList().Find(m => m.Id == editedmeme.Id).Description = description;
+                    context.Memes.ToList().Find(m => m.Id == editedmeme.Id).ImagePath = imagePath;
                     context.SaveChanges();
+                    MemeAdded?.Invoke(editedmeme);
                 }
                 catch (Exception)
                 {
@@ -65,13 +67,14 @@ namespace ClassLibraryOfMemes
                 }
             }
         }
-        public void EditGroup(Group group, string url)
+        public void EditGroup(Group group, string url, string name)
         {
             using (var context = new ContextOfMemes())
             {
                 try
                 {
                     context.Groups.ToList().Find(g => g.Id == group.Id).Url = url;
+                    context.Groups.ToList().Find(g => g.Id == group.Id).Name = name;
                     context.SaveChanges();
                     GroupAdded?.Invoke(group);
                 }
