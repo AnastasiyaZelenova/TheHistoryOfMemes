@@ -46,7 +46,10 @@ namespace UIOfMemes
 
         private void buttonDeleteMeme_Click(object sender, RoutedEventArgs e)
         {
+            
             _repository.DeleteMeme(_meme);
+            
+            Close();
         }
 
         private void buttonEditMeme_Click(object sender, RoutedEventArgs e)
@@ -57,8 +60,7 @@ namespace UIOfMemes
 
         private void buttonLikes_Click(object sender, RoutedEventArgs e)
         {
-
-            _repository.Likes(int.Parse(textBlockLikes.Text));
+             _repository.Likes(int.Parse(textBlockLikes.Text));
         }
     }
 }

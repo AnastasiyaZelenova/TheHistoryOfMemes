@@ -23,12 +23,16 @@ namespace UIOfMemes
         {
             InitializeComponent();
             _repository = repository;
+            
             listViewMemes.ItemsSource = repository.Memes;
-            listViewGroups.ItemsSource = repository.Groups;
+            listViewMemes.Items.Refresh();
+            listBoxGroups.ItemsSource = repository.Groups;
+            listBoxGroups.Items.Refresh();
             _vkAuth.OnAuthorized += Authorized;
             _vkAuth.CheckAuthorization();
             repository.UsersMemeAdded += m => listViewMemes.Items.Refresh();
-            repository.GroupAdded += m => listViewGroups.Items.Refresh();
+            repository.MemeAdded +=m=> listViewMemes.Items.Refresh();
+            repository.GroupAdded += m => listBoxGroups.Items.Refresh();
         }
 
         private void Authorized()
@@ -36,6 +40,7 @@ namespace UIOfMemes
             buttonAddGroup.IsEnabled = false;
             buttonAddMeme.IsEnabled = false;
             buttonEditGroup.IsEnabled = false;
+            
         }
 
         private void listViewMemes_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -78,6 +83,12 @@ namespace UIOfMemes
         {
             EditGroupWindow editGroup = new EditGroupWindow();
             editGroup.Show();
+        }
+    
+        private void listBoxGroups_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Group selectedGroup = listBoxGroups.SelectedItem as Group;
+            System.Diagnostics.Process.Start(selectedGroup.Url); 
         }
     }
 }
