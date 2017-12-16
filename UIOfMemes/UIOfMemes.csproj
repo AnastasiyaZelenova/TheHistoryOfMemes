@@ -80,6 +80,9 @@
     <Compile Include="CreateMemeWindow.xaml.cs">
       <DependentUpon>CreateMemeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditGroupWindow.xaml.cs">
+      <DependentUpon>EditGroupWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditMeme.xaml.cs">
       <DependentUpon>EditMeme.xaml</DependentUpon>
     </Compile>
@@ -105,6 +108,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CreateMemeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditGroupWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

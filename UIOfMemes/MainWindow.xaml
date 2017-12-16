@@ -17,7 +17,15 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Image Grid.ColumnSpan="2" Grid.RowSpan="3" Source="/images/background.jpg"></Image>
-        <ListBox Name="listBoxGroups" ItemsSource="{Binding}" DisplayMemberPath="Name"  Grid.RowSpan="3" Margin="10 50" ></ListBox>
+        <ListView Name="listViewGroups" ItemsSource="{Binding}" DisplayMemberPath="Name"  Grid.RowSpan="3" Margin="10 50 10 70" >
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Name="menuItemDeleteGroup" Header="Delete" Click="menuItemDeleteGroup_Click"  ></MenuItem>
+                    <Separator></Separator>
+                    <MenuItem Name="menuItemEditGroup" Header="Edit" Click="menuItemEditGroup_Click" ></MenuItem>
+                </ContextMenu>
+            </ListView.ContextMenu>
+        </ListView>
         <ListView Name="listViewMemes"  Grid.Row="1" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Disabled"  Margin="20,30,20,0" MouseDoubleClick="listViewMemes_MouseDoubleClick"  >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -38,14 +46,15 @@
                         <TextBlock  HorizontalAlignment="Center" Text="{Binding Name}"/>
                     </Grid>
                 </DataTemplate>
-                
+
             </ListView.ItemTemplate>
-            
+
 
         </ListView>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 30" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top">
+        <Button Name="buttonAddGroup" Content="Add group" Foreground="White" Margin="0,50,0,20" MaxHeight="30" Grid.Row="2" IsEnabled="True" MinWidth="100" HorizontalAlignment="Center" ></Button>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 30"  Grid.Column="1" Grid.Row="2" VerticalAlignment="Top">
             <Button Name="buttonAddMeme" Content="Add meme" Margin="5" MinHeight="40" MinWidth="70" IsEnabled="True"   Click="buttonAddMeme_Click" ></Button>
-            <Button Name="buttonAddGroup" Content="Add group" Margin="5" MinHeight="40" IsEnabled="True" MinWidth="70" ></Button>
             <Button Name="buttonEditGroup" Content="Edit group" Margin="5" IsEnabled="True" MinHeight="40" MinWidth="70" ></Button>
             <Button Name="buttonAddUserMeme" Content="Paint meme" Margin="5" MinHeight="40" IsEnabled="True" MinWidth="70" Click="buttonAddUserMeme_Click" ></Button>
         </StackPanel>
@@ -57,6 +66,6 @@
             <Image Source="images/exit.png" Height="30" Width="30" ></Image>
             <Button Name="buttonLogOut"   Content="Log Out" MinWidth="60" MinHeight="20" Click="buttonLogOut_Click"></Button>
         </DockPanel>
-        
+
     </Grid>
 </Window>

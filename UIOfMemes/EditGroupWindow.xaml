@@ -1,11 +1,11 @@
-﻿<Window x:Class="UIOfMemes.AddGroupWindow"
+﻿<Window x:Class="UIOfMemes.EditGroupWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIOfMemes"
         mc:Ignorable="d"
-        Title="AddGroupWindow" Height="450" Width="500" Background="AliceBlue" WindowStartupLocation="CenterScreen">
+        Title="EditGroupWindow" Height="450" Width="500" Background="AliceBlue" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1.2*"/>
@@ -15,12 +15,13 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Name:" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="Georgia" />
-        <TextBox Name="textBoxAddName" Grid.Row="1" VerticalAlignment="Top" Margin="60 20" FontFamily="Georgia" />
+        <TextBox Name="textBoxEditName" Grid.Row="1" VerticalAlignment="Top" Margin="80 20" FontFamily="Georgia" />
         <TextBlock Text="Url:" FontSize="20" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Georgia" />
-        <TextBox Name="textBoxAddUrl" Grid.Row="3" VerticalAlignment="Top" Margin="60 20" FontFamily="Georgia" />
+        <TextBox Name="textBoxEditUrl" Grid.Row="3" VerticalAlignment="Top" Margin="80 20" FontFamily="Georgia" />
         <WrapPanel Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 20">
-            <Button  Name="buttonAddGroupCancel" MinWidth="80" MinHeight="30" Foreground="White" Margin="10,5,10,5" Content="Cancel" Click="buttonAddGroupCancel_Click" ></Button>
-            <Button  Name="buttonAddGroupOk" MinWidth="80" MinHeight="30" Margin="10,5,10,5" Content="OK" Foreground="White" Click="buttonAddGroupOk_Click" ></Button>
+            <Button  Name="buttonEditGroupCancel" MinWidth="80" MinHeight="30" Foreground="White" Margin="10,5,10,5" Content="Cancel"  ></Button>
+            <Button  Name="buttonEditGroupOk" MinWidth="80" MinHeight="30" Margin="10,5,10,5" Content="OK" Foreground="White"  ></Button>
         </WrapPanel>
     </Grid>
 </Window>
+

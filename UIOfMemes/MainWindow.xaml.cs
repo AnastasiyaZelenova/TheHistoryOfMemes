@@ -24,11 +24,11 @@ namespace UIOfMemes
             InitializeComponent();
             _repository = repository;
             listViewMemes.ItemsSource = repository.Memes;
-            listBoxGroups.ItemsSource = repository.Groups;
+            listViewGroups.ItemsSource = repository.Groups;
             _vkAuth.OnAuthorized += Authorized;
             _vkAuth.CheckAuthorization();
             repository.UsersMemeAdded += m => listViewMemes.Items.Refresh();
-            repository.GroupAdded += m => listBoxGroups.Items.Refresh();
+            repository.GroupAdded += m => listViewGroups.Items.Refresh();
         }
 
         private void Authorized()
@@ -69,6 +69,15 @@ namespace UIOfMemes
             addMeme.Show();
         }
 
-        
+        private void menuItemDeleteGroup_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void menuItemEditGroup_Click(object sender, RoutedEventArgs e)
+        {
+            EditGroupWindow editGroup = new EditGroupWindow();
+            editGroup.Show();
+        }
     }
 }
