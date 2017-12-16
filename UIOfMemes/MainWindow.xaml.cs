@@ -45,8 +45,8 @@ namespace UIOfMemes
         {
             buttonAddGroup.IsEnabled = false;
             buttonAddMeme.IsEnabled = false;
-            buttonEditGroup.IsEnabled = false;
-            
+            menuItemDeleteGroup.IsEnabled = false;
+            menuItemEditGroup.IsEnabled = false;
         }
 
         private void listViewMemes_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -92,7 +92,7 @@ namespace UIOfMemes
             editGroup.Show();
         }
     
-        private void listBoxGroups_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void listViewGroups_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             Group selectedGroup = listViewGroups.SelectedItem as Group;
             System.Diagnostics.Process.Start(selectedGroup.Url); 

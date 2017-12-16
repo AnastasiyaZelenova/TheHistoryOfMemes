@@ -209,5 +209,11 @@
     <Resource Include="Memes\TonyStarkFace.jpg" />
     <Resource Include="Memes\Vzhukh.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\edit.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
