@@ -130,6 +130,47 @@
                 {
                     Name = "хайер скул оф мемс | ВШЭ",
                     Url = "https://vk.com/hsemem"
+                },
+                new Group
+                {
+                    Name ="4ch",
+                    Url = "https://vk.com/cs_4ch"
+                },
+                 new Group
+                {
+                     Name = "9GAG",
+                     Url = "https://vk.com/ru9gag"
+
+                },
+                  new Group
+                {
+                      Name = "Бездна книжного уюта",
+                     Url = "https://vk.com/bezdna_bku"
+                },
+                   new Group
+                {
+                       Name = "Смейся до слёз",
+                     Url = "https://vk.com/ifun"
+                },
+                    new Group
+                {
+                     Name = "Биржа мемов",
+                     Url = "https://vk.com/leprofun"
+                },
+                     new Group
+                {
+                     Name = "1001 мем",
+                     Url = "https://vk.com/mem1001"
+                },
+                      new Group
+                {
+                     Name = "абстрактные мемы для элиты всех сортов",
+                     Url = "https://vk.com/abstract_memes"
+                },
+                       new Group
+                {
+                     Name = "Душоновская Уточка",
+                     Url = "https://vk.com/dushonovskayautka"
                 }
             };
 
