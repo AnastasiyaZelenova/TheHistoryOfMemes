@@ -9,6 +9,8 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using ClassLibraryOfMemes.DTO;
+using System.Runtime.InteropServices;
+using System.Diagnostics;
 
 namespace ClassLibraryOfMemes
 {
@@ -38,9 +40,10 @@ namespace ClassLibraryOfMemes
             catch {}
         }
 
-        public void ClearToken()
+        public void ClearCookies()
         {
-            File.WriteAllText(TokenFile, string.Empty);
+            File.Delete(TokenFile);
+            Process.Start("cmd.exe", "/C RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 255"); //http://www.cyberforum.ru/csharp-net/thread401794.html
         }
 
         // Save the token to a file

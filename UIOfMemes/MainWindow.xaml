@@ -54,5 +54,6 @@
             <Image Source="images/exit.png" Height="30" Width="30" ></Image>
             <Button Name="buttonLogOut"   Content="Log Out" MinWidth="60" MinHeight="20" Click="buttonLogOut_Click"></Button>
         </DockPanel>
+        <TextBlock Name="textBlockUserName" Grid.Column="1" HorizontalAlignment="Left" Margin="344,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
     </Grid>
 </Window>
