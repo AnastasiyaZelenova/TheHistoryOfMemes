@@ -17,8 +17,8 @@ namespace UIOfMemes
     public partial class MainWindow : Window
     {
         VkAuth _vkAuth = new VkAuth();
-
         Repository _repository;
+
         public MainWindow(Repository repository)
         {
             InitializeComponent();
@@ -30,9 +30,15 @@ namespace UIOfMemes
             listBoxGroups.Items.Refresh();
             _vkAuth.OnAuthorized += Authorized;
             _vkAuth.CheckAuthorization();
+            WriteUserName();
             repository.UsersMemeAdded += m => listViewMemes.Items.Refresh();
             repository.MemeAdded +=m=> listViewMemes.Items.Refresh();
             repository.GroupAdded += m => listBoxGroups.Items.Refresh();
+        }
+
+        private async void WriteUserName()
+        {
+            textBlockUserName.Text = await _vkAuth.GetUserName();
         }
 
         private void Authorized()
@@ -59,7 +65,8 @@ namespace UIOfMemes
 
         private void buttonLogOut_Click(object sender, RoutedEventArgs e)
         {
-            _vkAuth.ClearToken();
+            _vkAuth.ClearCookies();
+            Application.Current.Shutdown();
         }
 
         private void buttonAddUserMeme_Click(object sender, RoutedEventArgs e)

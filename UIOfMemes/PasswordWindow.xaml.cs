@@ -21,28 +21,28 @@ namespace UIOfMemes
     /// </summary>
     public partial class PasswordWindow : Window
     {
-        Repository repository = new Repository();
-        VkAuth vkAuth = new VkAuth();
+        Repository _repository = new Repository();
+        VkAuth _vkAuth = new VkAuth();
 
         private void Authorize()
         {
             var browserWindow = new BrowserWindow();
-            browserWindow.OnRedirected += vkAuth.AuthorizationRedirect;
+            browserWindow.OnRedirected += _vkAuth.AuthorizationRedirect;
             browserWindow.Show();
-            browserWindow.NavigateTo(vkAuth.GetAuthUrl(), vkAuth.RedirectPage);
+            browserWindow.NavigateTo(_vkAuth.GetAuthUrl(), _vkAuth.RedirectPage);
         }
 
         public PasswordWindow()
         {
             InitializeComponent();
-            vkAuth.OnAuthorized += Authorized;
-            vkAuth.CheckAuthorization();
+            _vkAuth.OnAuthorized += Authorized;
+            _vkAuth.CheckAuthorization();
         }
 
         private void Authorized()
         {
-            MainWindow mainWindow = new MainWindow(repository);
-            mainWindow.Show();
+            MainWindow _mainWindow = new MainWindow(_repository);
+            _mainWindow.Show();
             Close();
         }
 
@@ -65,7 +65,7 @@ namespace UIOfMemes
 
             if (textBoxLogin.Text == "zeNOfa" && CalculateHash(passwordBox.Password) == hash)
             {
-                MainWindow mainWindow = new MainWindow(repository);
+                MainWindow mainWindow = new MainWindow(_repository);
                 mainWindow.Show();
                 Close();
             }
