@@ -239,5 +239,30 @@
   <ItemGroup>
     <Resource Include="images\add.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Memes\CerealGuy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Memes\BatonRoue.jpg" />
+    <Resource Include="Memes\ThisIsFine.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Memes\Facepalm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Memes\Money.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Memes\NotSureIf.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Memes\DisasterGirl.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Memes\Тут.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Memes\Simply.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

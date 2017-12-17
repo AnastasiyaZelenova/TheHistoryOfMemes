@@ -63,21 +63,16 @@ namespace UIOfMemes
             try
             {
                 Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
-                dlg.FileName = "savedimage"; // Default file name
-                dlg.DefaultExt = ".jpg"; // Default file extension
-                dlg.Filter = "Image (.jpg)|*.jpg"; // Filter files by extension
-                // Show save file dialog box
+                dlg.FileName = "savedimage"; 
+                dlg.DefaultExt = ".jpg"; 
+                dlg.Filter = "Image (.jpg)|*.jpg"; 
                 Nullable<bool> result = dlg.ShowDialog();
-                // Process save file dialog box results
                 if (result == true)
                 {
-                    // Save document
                     string filename = dlg.FileName;
-                    //get the dimensions of the ink control
                     int margin = (int)this.inkCanvasPaint.Margin.Left;
                     int width = (int)this.inkCanvasPaint.ActualWidth;
                     int height = (int)this.inkCanvasPaint.ActualHeight;
-                    //render ink to bitmap
                     RenderTargetBitmap rtb = new RenderTargetBitmap(width, height, 96d, 96d, PixelFormats.Default);
                     rtb.Render(inkCanvasPaint);
                     using (FileStream fs = new FileStream(filename, FileMode.Create))
@@ -107,9 +102,8 @@ namespace UIOfMemes
         private void sldColor_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             var slider = sender as Slider;
-            string crlName = slider.Name; //Определяем имя контрола, который покрутили
-            double value = slider.Value; // Получаем значение контрола
-                                         //В зависимости от выбранного контрола, меняем ту или иную компоненту и переводим ее в тип byte
+            string crlName = slider.Name; 
+            double value = slider.Value; 
             if (crlName.Equals("sldRed"))
             {
                 mcolor.red = Convert.ToByte(value);
@@ -122,11 +116,8 @@ namespace UIOfMemes
             {
                 mcolor.blue = Convert.ToByte(value);
             }
-            //Задаем значение переменной класса clr 
             clr = Color.FromRgb(mcolor.red, mcolor.green, mcolor.blue);
-            //Устанавливаем фон для контрола Label 
             lbl1.Background = new SolidColorBrush(Color.FromRgb(mcolor.red, mcolor.green, mcolor.blue));
-            // Задаем цвет кисти для контрола InkCanvas
             inkCanvasPaint.DefaultDrawingAttributes.Color = clr;
         }
         public ColorRGB mcolor { get; set; }

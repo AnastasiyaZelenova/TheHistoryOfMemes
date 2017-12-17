@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIOfMemes"
         mc:Ignorable="d"
-        Title="AddMemeWindow" Height="450" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" >
+        Title="Add Meme" Height="450" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" >
     <!--<Grid Background="AliceBlue">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2.5*"></ColumnDefinition>
