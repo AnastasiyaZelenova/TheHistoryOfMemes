@@ -20,7 +20,7 @@
             <TextBlock Text="Year:" FontSize="30" Margin="15 0" VerticalAlignment="Center" FontFamily="Georgia"></TextBlock>
             <TextBlock Name="textBlockMemYear"   VerticalAlignment="Center" FontSize="30" FontFamily="Georgia"></TextBlock>
             <Button Name="buttonLikes" MinWidth="100" MaxHeight="30" Margin="15 0 10 0" Click="buttonLikes_Click" >
-                <Image Source="images/like.png" MinHeight="30" MinWidth="40"></Image>
+                <Image Source="images/redlike.png" MinHeight="30" MinWidth="40"></Image>
             </Button>
             <TextBlock Name="textBlockLikes" Text="{Binding Path=likes}"  FontSize="30"  Margin="5 10 0 10"  FontFamily="Georgia"></TextBlock>
         </DockPanel>
