@@ -191,10 +191,10 @@ namespace ClassLibraryOfMemes
         {
             using (var context = new ContextOfMemes())
             {
-                var memeInDB = context.Memes.First(m => m.Id == meme.Id);
-                memeInDB.Likes =  likes++;
-                OnLikesChanged?.Invoke(likes);
+                likes++;
+                var memeInDB = context.Memes.First(m => m.Id == meme.Id).Likes = likes;                              
                 context.SaveChanges();
+                OnLikesChanged?.Invoke(likes);
                 return likes;
             }
         }
