@@ -31,16 +31,16 @@ namespace UIOfMemes
             _vkAuth.OnAuthorized += Authorized;
             _vkAuth.CheckAuthorization();
             WriteUserName();
-            repository.UsersMemeAdded += m => listViewMemes.Items.Refresh();
-            repository.MemeAdded +=m=> listViewMemes.Items.Refresh();
-            repository.GroupAdded += m => listViewGroups.Items.Refresh();
+            repository.UsersMemesChanged += m => listViewMemes.Items.Refresh();
+            repository.MemesChanged += m => listViewMemes.Items.Refresh();
+            repository.GroupsChanged += m => listViewGroups.Items.Refresh();
         }
 
         private async void WriteUserName()
         {
             textBlockUserName.Text = await _vkAuth.GetUserName();
         }
-
+       
         private void Authorized()
         {
             buttonAddGroup.IsEnabled = false;
