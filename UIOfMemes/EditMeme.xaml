@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIOfMemes"
         mc:Ignorable="d"
-        Title="EditMeme" Height="450" Width="500" Background="AliceBlue"  WindowStartupLocation="CenterScreen">
+        Title="EditMeme" Height="450" Width="500" Background="AliceBlue"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -40,7 +40,7 @@
                          SpellCheck.IsEnabled="True" Language="ru-ru" FontSize="20" FontFamily="Georgia" VerticalAlignment="Center"/>
                 <TextBlock Text="File path" Grid.Row="3" FontSize="20"  Foreground="Maroon" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Georgia" Margin="10"/>
                 <WrapPanel Grid.Column="1" Grid.Row="3"  Margin="50 10 50 0">
-                    <TextBox Name="textBoxEditPath" Grid.Column="1" Grid.Row="3" Width="190" VerticalAlignment="Center"/>
+                    <TextBox Name="textBoxEditPath" Grid.Column="1" Grid.Row="3" Width="190" VerticalAlignment="Center" KeyDown="textBoxEditPath_KeyDown"/>
                     <Button Name="buttonAddPath" HorizontalAlignment="Right" MinWidth="60" MinHeight="20" Content="Browse" Foreground="White" Margin="5 0 0 0" Click="buttonAddPath_Click" ></Button>
                 </WrapPanel>
                 <WrapPanel Grid.Row="4"  Grid.Column="1" HorizontalAlignment="Center" Margin="0 10">

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIOfMemes"
         mc:Ignorable="d"
-        Title="Chosen meme" Height="600" Width="800" Background="AliceBlue" WindowStartupLocation="CenterScreen">
+        Title="Chosen meme" Height="600" Width="800" Background="AliceBlue" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"></RowDefinition>
@@ -28,9 +28,9 @@
             <TextBlock Name="textBlockLikes" Foreground="Maroon" Text="{Binding Path=likes}"  FontSize="30"  Margin="5 10 0 10"  FontFamily="Georgia"></TextBlock>
         </DockPanel>
         <StackPanel Orientation="Vertical" Grid.Column="1" Margin="0 30">
-            <TextBlock Text="Description:"  FontSize="25" FontFamily="Georgia" Margin="0 10"></TextBlock>
+            <TextBlock Text="Description:"  FontSize="25" FontFamily="Georgia" Foreground="Maroon" Margin="0 10"></TextBlock>
                 <ScrollViewer Height="300" VerticalScrollBarVisibility="Auto">
-                    <TextBlock Name="textBlockDescription" Text="{Binding Description}" Foreground="Maroon" FontFamily="Times New Roman" FontSize="16" TextWrapping="WrapWithOverflow" VerticalAlignment="Bottom" Margin="0 10 40 0"></TextBlock>
+                    <TextBlock Name="textBlockDescription" Text="{Binding Description}" Foreground="Maroon" FontFamily="Times New Roman" FontSize="16" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Margin="0 10 40 0"></TextBlock>
                 </ScrollViewer>
         </StackPanel>
         <DockPanel Grid.Column="1" Grid.Row="1" Margin="0 55 0 0" HorizontalAlignment="Center" VerticalAlignment="Top">

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIOfMemes"
         mc:Ignorable="d"
-        Title="BrowserWindow" Height="318" Width="540" WindowStartupLocation="CenterScreen">
+        Title="BrowserWindow" Height="318" Width="540" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <WebBrowser Name="webBrowser" Navigated="webBrowser_Navigated"/>
     </Grid>
