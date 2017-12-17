@@ -80,12 +80,10 @@ namespace UIOfMemes
                 Close();
                 MainWindow mainWindow = new MainWindow(_repository);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.Message, "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-           
         }
 
         private void buttonAddPath_Click(object sender, RoutedEventArgs e)
