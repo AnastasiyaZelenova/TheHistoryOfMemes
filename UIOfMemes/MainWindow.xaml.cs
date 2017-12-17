@@ -108,13 +108,7 @@ namespace UIOfMemes
             addGroup.Show();
         }
 
-        private void buttonRefresh_Click(object sender, RoutedEventArgs e)
-        {
-            listViewGroups.ItemsSource = _repository.Groups;
-            listViewMemes.ItemsSource = _repository.Memes;
-            listViewGroups.Items.Refresh();
-            listViewMemes.Items.Refresh();
-        }
+       
 
         
     }
