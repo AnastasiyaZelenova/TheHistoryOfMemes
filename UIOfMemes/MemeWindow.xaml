@@ -22,7 +22,7 @@
         <DockPanel Grid.Row="1" Margin="40" >
             <TextBlock Text="Year:" FontSize="30" Foreground="Maroon" Margin="15 0" VerticalAlignment="Center" FontFamily="Georgia"></TextBlock>
             <TextBlock Name="textBlockMemYear" Foreground="Maroon"  VerticalAlignment="Center" FontSize="30" FontFamily="Georgia"></TextBlock>
-            <Button Name="buttonLikes" MinWidth="100" MaxHeight="30" Margin="15 0 10 0" Click="buttonLikes_Click" >
+            <Button Name="buttonLikes" MinWidth="100" MaxHeight="30" Margin="15 0 10 0" Click="buttonLikes_Click" IsEnabled="False">
                 <Image Source="images/redlike.png" MinHeight="30" MinWidth="40"></Image>
             </Button>
             <TextBlock Name="textBlockLikes" Foreground="Maroon" Text="{Binding Path=likes}"  FontSize="30"  Margin="5 10 0 10"  FontFamily="Georgia"></TextBlock>

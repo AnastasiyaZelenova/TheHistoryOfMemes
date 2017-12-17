@@ -135,7 +135,7 @@ namespace ClassLibraryOfMemes
                     }
                 }
             }
-            return null;
+            return "";
         }
     }
 }

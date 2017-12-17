@@ -40,7 +40,6 @@ namespace UIOfMemes
             {
                 System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
                 Application.Current.Shutdown();
-                //MessageBox.Show("Login to your account again.", "Do not panic", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             textBlockUserName.Text = await _vkAuth.GetUserName();
         }
