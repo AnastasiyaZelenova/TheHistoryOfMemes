@@ -199,9 +199,6 @@
     <Resource Include="images\entry.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\like.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Memes\GrumpyCat.jpg" />
     <Resource Include="Memes\Harold.jpg" />
     <Resource Include="Memes\MeGusta.jpg" />
@@ -232,6 +229,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Memes\SneakyTom.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\ana.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\redlike.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\add.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

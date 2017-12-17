@@ -5,19 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIOfMemes"
         mc:Ignorable="d"
-        Title="EditMeme" Height="450" Width="500" Background="AliceBlue" WindowStartupLocation="CenterScreen">
+        Title="EditMeme" Height="450" Width="500" Background="AliceBlue"  WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="4.5*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Here you can edit your meme." HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Georgia" FontSize="30"></TextBlock>
+        <Grid.Background>
+            <ImageBrush ImageSource="images/ana.jpg"></ImageBrush>
+        </Grid.Background>
+        <TextBlock Text="Here you can edit your meme." HorizontalAlignment="Center"  Foreground="Maroon" VerticalAlignment="Center" FontFamily="Georgia" FontSize="30"></TextBlock>
         <StackPanel Grid.Row="1" Orientation="Vertical">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="2.8*"/>
                 </Grid.ColumnDefinitions>
+                
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
@@ -25,20 +29,25 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Name:" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Georgia" Margin="10"/>
+
+                <TextBlock Text="Name:" FontSize="20" HorizontalAlignment="Center"  Foreground="Maroon" VerticalAlignment="Center" FontFamily="Georgia" Margin="10"/>
                 <TextBox Name="textBoxEditName" Grid.Column="1" Margin="50 10 50 0" VerticalAlignment="Center" FontFamily="Georgia" />
-                <TextBlock Text="Year:" Grid.Row="1" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Georgia" Margin="10"/>
+                <TextBlock Text="Year:" Grid.Row="1" FontSize="20" HorizontalAlignment="Center"  Foreground="Maroon" VerticalAlignment="Center" FontFamily="Georgia" Margin="10"/>
                 <TextBox Name="textBoxEditYear" Grid.Column="1" Grid.Row="1" MaxLength="5" VerticalAlignment="Center" Margin="50 10 50 0"/>
-                <TextBlock Text="Description:" Grid.Row="2" FontSize="20" HorizontalAlignment="Center" FontFamily="Georgia" VerticalAlignment="Top" Margin="10"/>
+                <TextBlock Text="Description:" Grid.Row="2" FontSize="20"  Foreground="Maroon" HorizontalAlignment="Center" FontFamily="Georgia" VerticalAlignment="Top" Margin="10"/>
                 <TextBox Name="textBoxEditDescription" Grid.Column="1" Grid.Row="2" Height="150" Margin="50 10 50 0" TextWrapping="Wrap" 
                          AcceptsReturn="True" AcceptsTab="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
                          SpellCheck.IsEnabled="True" Language="ru-ru" FontSize="20" FontFamily="Georgia" VerticalAlignment="Center"/>
-                <TextBlock Text="File path" Grid.Row="3" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Georgia" Margin="10"/>
-                <TextBox Name="textBoxEditPath" Grid.Column="1" Grid.Row="3" MaxLength="5" Margin="50 10 50 0" VerticalAlignment="Center"/>
+                <TextBlock Text="File path" Grid.Row="3" FontSize="20"  Foreground="Maroon" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Georgia" Margin="10"/>
+                <WrapPanel Grid.Column="1" Grid.Row="3"  Margin="50 10 50 0">
+                    <TextBox Name="textBoxEditPath" Grid.Column="1" Grid.Row="3" Width="190" VerticalAlignment="Center"/>
+                    <Button Name="buttonAddPath" HorizontalAlignment="Right" MinWidth="60" MinHeight="20" Content="Browse" Foreground="White" Margin="5 0 0 0" Click="buttonAddPath_Click" ></Button>
+                </WrapPanel>
                 <WrapPanel Grid.Row="4"  Grid.Column="1" HorizontalAlignment="Center" Margin="0 10">
                     <Button  Name="buttonEditMemeCancel" MinWidth="60" MinHeight="20" Foreground="White" Margin="10,5,10,5" Content="Cancel" Click="buttonEditMemeCancel_Click" ></Button>
                     <Button  Name="buttonEditMemeOk" MinWidth="60" MinHeight="20" Margin="10,5,10,5" Content="OK" Foreground="White" Click="buttonEditMemeOk_Click" ></Button>
                 </WrapPanel>
+                <Image Source="images/edit.png" Grid.Row="4" Grid.Column="1" MaxHeight="50" MaxWidth="50" VerticalAlignment="Bottom" Margin="20 0 20 20" HorizontalAlignment="Right"></Image>
             </Grid>
         </StackPanel>
         
