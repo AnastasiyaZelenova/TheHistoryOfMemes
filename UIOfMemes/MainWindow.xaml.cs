@@ -38,6 +38,12 @@ namespace UIOfMemes
 
         private async void WriteUserName()
         {
+            if (await _vkAuth.GetUserName() == null)
+            {
+                System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+                Application.Current.Shutdown();
+                //MessageBox.Show("Login to your account again.", "Do not panic", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
             textBlockUserName.Text = await _vkAuth.GetUserName();
         }
 
@@ -66,6 +72,7 @@ namespace UIOfMemes
         private void buttonLogOut_Click(object sender, RoutedEventArgs e)
         {
             _vkAuth.ClearCookies();
+            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
             Application.Current.Shutdown();
         }
 

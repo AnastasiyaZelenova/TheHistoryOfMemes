@@ -40,11 +40,11 @@ namespace UIOfMemes
             textBlockDescription.Text = meme.Description;
             textBlockMemYear.Text = (meme.Year).ToString();
             textBlockLikes.Text = (meme.Likes).ToString();
-            
         }
 
         private void Authorized()
         {
+            buttonLikes.IsEnabled = true;
             buttonDeleteMeme.IsEnabled = false;
             buttonEditMeme.IsEnabled = false;
         }
@@ -56,9 +56,7 @@ namespace UIOfMemes
 
         private void buttonDeleteMeme_Click(object sender, RoutedEventArgs e)
         {
-            
             _repository.DeleteMeme(_meme);
-            
             Close();
         }
 
@@ -71,7 +69,7 @@ namespace UIOfMemes
 
         private void buttonLikes_Click(object sender, RoutedEventArgs e)
         {
-            _meme.Likes =  _repository.IncreaseLikes(_meme.Likes, _meme );
+            _meme.Likes = _repository.IncreaseLikes(_meme.Likes, _meme );
         }
     }
 }

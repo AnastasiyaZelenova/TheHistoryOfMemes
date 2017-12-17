@@ -74,8 +74,7 @@ namespace UIOfMemes
                     Name = memeName.Text,
                     Description = memeDescription.Text,
                     Year = int.Parse(memeYear.Text),
-                    ImagePath = filename,
-                    Likes = 0
+                    ImagePath = filename
                 };
                 repository.AddUsersMeme(meme);
                 Close();
