@@ -338,6 +338,10 @@
                     Year = 2014,
                     Likes = 0,
                     ImagePath = "/Memes/Тут.jpg"
+                },
+                new Meme
+                {
+                    ImagePath = "/Memes/Simply.jpg"
                 }
             };
 
