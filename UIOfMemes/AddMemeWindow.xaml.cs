@@ -102,8 +102,21 @@ namespace UIOfMemes
                 textBoxAddPath.Text = "/Memes/" + System.IO.Path.GetFileName(fileDialog.FileName);
                 string path = AppDomain.CurrentDomain.BaseDirectory.Substring(0, AppDomain.CurrentDomain.BaseDirectory.Length - 10);
                 string name = Path.GetFileName(fileDialog.FileName);
-                File.Copy(fileDialog.FileName, path + "\\Memes\\" + name);
-                MessageBox.Show("Image was added to the folder with resources. Now you need to add it to the folder inside solution.", "Attention", MessageBoxButton.OK, MessageBoxImage.Warning);
+                string[] allFoundFiles = Directory.GetFiles("/Memes/", name, SearchOption.AllDirectories);
+                foreach (var item in allFoundFiles)
+                {
+                    if ("/Memes/name" != item)
+                    {
+                        File.Copy(fileDialog.FileName, path + "\\Memes\\" + name);
+                        MessageBox.Show("Image was added to the folder with resources. Now you need to add it to the folder inside solution.", "Attention", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+                    else
+                    {
+                        MessageBox.Show("File with the same name already exists.", "Change name.", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                
+
             }
             else
             {
