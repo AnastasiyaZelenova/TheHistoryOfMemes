@@ -21,7 +21,6 @@ namespace ClassLibraryOfMemes
         public event Action<UsersMeme> UsersMemesChanged;
         public event Action<int> OnLikesChanged;
 
-
         public IEnumerable<Meme> Memes
         {
             get
@@ -30,6 +29,7 @@ namespace ClassLibraryOfMemes
                     return context.Memes.ToList();
             }
         }
+
         public IEnumerable<Group> Groups
         {
             get
@@ -38,6 +38,7 @@ namespace ClassLibraryOfMemes
                     return context.Groups.ToList();
             }
         }
+
         public IEnumerable<UsersMeme> UserMemes
         {
             get
@@ -66,6 +67,7 @@ namespace ClassLibraryOfMemes
                 }
             }
         }
+
         public void EditGroup(Group group, string url, string name)
         {
             using (var context = new ContextOfMemes())
@@ -83,6 +85,7 @@ namespace ClassLibraryOfMemes
                 }
             }
         }
+
         public void AddMeme(Meme meme)
         {
             using (var context = new ContextOfMemes())
@@ -99,6 +102,7 @@ namespace ClassLibraryOfMemes
                 }
             }
         }
+
         public void AddGroup(Group group)
         {
             using (var context = new ContextOfMemes())

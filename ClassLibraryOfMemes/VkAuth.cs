@@ -113,20 +113,29 @@ namespace ClassLibraryOfMemes
 
         public async Task<string> GetUserName()
         {
-            if (!IsAuthorized)
-                return null;
-
-            using (var client = new HttpClient())
+            if (IsAuthorized)
             {
-                var resultStr = await client.GetStringAsync(
-                    BuildUrl(string.Format(VkApiMethodTemplate, "account.getProfileInfo"),
-                    new KeyValuePair<string, string>[] {
+                using (var client = new HttpClient())
+                {
+                    var resultStr = await client.GetStringAsync(
+                        BuildUrl(string.Format(VkApiMethodTemplate, "account.getProfileInfo"),
+                        new KeyValuePair<string, string>[] {
                         new KeyValuePair<string, string>("access_token", _token),
                         new KeyValuePair<string, string>("user_id", _userId.ToString())
-                    }));
-                var userNameResponse = JsonConvert.DeserializeObject<UserNameResponse>(resultStr);
-                return userNameResponse.Response.first_name + " " + userNameResponse.Response.last_name;
+                        }));
+                    var userNameResponse = JsonConvert.DeserializeObject<UserNameResponse>(resultStr);
+                    if (userNameResponse.Response != null)
+                    {
+                        return userNameResponse.Response.first_name + " " + userNameResponse.Response.last_name;
+                    }
+                    else
+                    {
+                        ClearCookies();
+                        return null;
+                    }
+                }
             }
+            return null;
         }
     }
 }
