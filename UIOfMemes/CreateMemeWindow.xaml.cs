@@ -42,42 +42,65 @@ namespace UIOfMemes
 
         private void buttonSave_Click(object sender, RoutedEventArgs e)
         {
-            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
-            dlg.FileName = "savedimage"; // Default file name
-            dlg.DefaultExt = ".jpg"; // Default file extension
-            dlg.Filter = "Image (.jpg)|*.jpg"; // Filter files by extension
-
-            // Show save file dialog box
-            Nullable<bool> result = dlg.ShowDialog();
-
-            // Process save file dialog box results
-            if (result == true)
+            if (string.IsNullOrEmpty(memeName.Text))
             {
-                // Save document
-                string filename = dlg.FileName;
-                //get the dimensions of the ink control
-                int margin = (int)this.inkCanvasPaint.Margin.Left;
-                int width = (int)this.inkCanvasPaint.ActualWidth;
-                int height = (int)this.inkCanvasPaint.ActualHeight;
-                //render ink to bitmap
-                RenderTargetBitmap rtb = new RenderTargetBitmap(width, height, 96d, 96d, PixelFormats.Default);
-                rtb.Render(inkCanvasPaint);
-
-                using (FileStream fs = new FileStream(filename, FileMode.Create))
+                MessageBox.Show("It is important to insert name.", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                memeName.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(memeDescription.Text))
+            {
+                MessageBox.Show("It is important to insert description.", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                memeDescription.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(memeYear.Text))
+            {
+                MessageBox.Show("It is important to insert year.", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                memeYear.Focus();
+                return;
+            }
+            try
+            {
+                Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+                dlg.FileName = "savedimage"; // Default file name
+                dlg.DefaultExt = ".jpg"; // Default file extension
+                dlg.Filter = "Image (.jpg)|*.jpg"; // Filter files by extension
+                // Show save file dialog box
+                Nullable<bool> result = dlg.ShowDialog();
+                // Process save file dialog box results
+                if (result == true)
                 {
-                    BmpBitmapEncoder encoder = new BmpBitmapEncoder();
-                    encoder.Frames.Add(BitmapFrame.Create(rtb));
-                    encoder.Save(fs);
+                    // Save document
+                    string filename = dlg.FileName;
+                    //get the dimensions of the ink control
+                    int margin = (int)this.inkCanvasPaint.Margin.Left;
+                    int width = (int)this.inkCanvasPaint.ActualWidth;
+                    int height = (int)this.inkCanvasPaint.ActualHeight;
+                    //render ink to bitmap
+                    RenderTargetBitmap rtb = new RenderTargetBitmap(width, height, 96d, 96d, PixelFormats.Default);
+                    rtb.Render(inkCanvasPaint);
+                    using (FileStream fs = new FileStream(filename, FileMode.Create))
+                    {
+                        BmpBitmapEncoder encoder = new BmpBitmapEncoder();
+                        encoder.Frames.Add(BitmapFrame.Create(rtb));
+                        encoder.Save(fs);
+                    }
+                    UsersMeme meme = new UsersMeme
+                    {
+                        Name = memeName.Text,
+                        Description = memeDescription.Text,
+                        Year = int.Parse(memeYear.Text),
+                        ImagePath = filename,
+                        Likes = 0
+                    };
+                    repository.AddUsersMeme(meme);
+                    Close();
                 }
-                UsersMeme meme = new UsersMeme
-                {
-                    Name = memeName.Text,
-                    Description = memeDescription.Text,
-                    Year = int.Parse(memeYear.Text),
-                    ImagePath = filename
-                };
-                repository.AddUsersMeme(meme);
-                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
