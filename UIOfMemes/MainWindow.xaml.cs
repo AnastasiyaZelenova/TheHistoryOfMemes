@@ -115,7 +115,5 @@ namespace UIOfMemes
             listViewGroups.Items.Refresh();
             listViewMemes.Items.Refresh();
         }
-
-        
     }
 }
