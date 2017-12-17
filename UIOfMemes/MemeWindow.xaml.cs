@@ -71,6 +71,7 @@ namespace UIOfMemes
         private void buttonLikes_Click(object sender, RoutedEventArgs e)
         {
             _meme.Likes =  _repository.IncreaseLikes(_meme.Likes, _meme );
+            IsEnabled = false;
         }
     }
 }
