@@ -23,18 +23,24 @@ namespace UIOfMemes
         {
             InitializeComponent();
             _repository = repository;
-            listViewMemes.ItemsSource = repository.Memes;
-            listViewGroups.ItemsSource = repository.Groups;
+            listViewMemes.ItemsSource = _repository.Memes;
+            listViewGroups.ItemsSource = _repository.Groups;
+            
             _vkAuth.OnAuthorized += Authorized;
             _vkAuth.CheckAuthorization();
             WriteUserName();
-            repository.UsersMemesChanged += m => listViewMemes.Items.Refresh();
-            repository.MemesChanged += m=> listViewMemes.Items.Refresh();
-            repository.GroupsChanged += m => listViewGroups.Items.Refresh();
+            _repository.UsersMemesChanged += m => listViewMemes.ItemsSource = _repository.Memes;
+            _repository.MemesChanged += m => listViewMemes.ItemsSource = _repository.Memes;
+            _repository.GroupsChanged += m => listViewGroups.ItemsSource = _repository.Groups;
         }
 
         private async void WriteUserName()
         {
+            if (await _vkAuth.GetUserName() == null)
+            {
+                System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+                Application.Current.Shutdown();
+            }
             textBlockUserName.Text = await _vkAuth.GetUserName();
         }
 
@@ -63,6 +69,7 @@ namespace UIOfMemes
         private void buttonLogOut_Click(object sender, RoutedEventArgs e)
         {
             _vkAuth.ClearCookies();
+            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
             Application.Current.Shutdown();
         }
 

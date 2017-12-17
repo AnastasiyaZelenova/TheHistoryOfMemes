@@ -44,6 +44,7 @@ namespace UIOfMemes
 
         private void Authorized()
         {
+            buttonLikes.IsEnabled = true;
             buttonDeleteMeme.IsEnabled = false;
             buttonEditMeme.IsEnabled = false;
         }
@@ -55,9 +56,7 @@ namespace UIOfMemes
 
         private void buttonDeleteMeme_Click(object sender, RoutedEventArgs e)
         {
-            
             _repository.DeleteMeme(_meme);
-            
             Close();
         }
 
