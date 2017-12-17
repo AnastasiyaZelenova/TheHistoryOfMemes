@@ -23,14 +23,15 @@ namespace UIOfMemes
         {
             InitializeComponent();
             _repository = repository;
-            listViewMemes.ItemsSource = repository.Memes;
-            listViewGroups.ItemsSource = repository.Groups;
+            listViewMemes.ItemsSource = _repository.Memes;
+            listViewGroups.ItemsSource = _repository.Groups;
+            
             _vkAuth.OnAuthorized += Authorized;
             _vkAuth.CheckAuthorization();
             WriteUserName();
-            _repository.UsersMemesChanged += m => listViewMemes.Items.Refresh();
-            _repository.MemesChanged += m=> listViewMemes.Items.Refresh();
-            _repository.GroupsChanged += m => listViewGroups.Items.Refresh();
+            _repository.UsersMemesChanged += m => listViewMemes.ItemsSource = _repository.Memes;
+            _repository.MemesChanged += m => listViewMemes.ItemsSource = _repository.Memes;
+            _repository.GroupsChanged += m => listViewGroups.ItemsSource = _repository.Groups;
         }
 
         private async void WriteUserName()
