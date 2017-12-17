@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIOfMemes"
         mc:Ignorable="d"
-        Title="AddMemeWindow" Height="450" Width="500" WindowStartupLocation="CenterScreen" Background="AliceBlue" >
+        Title="AddMemeWindow" Height="450" Width="500" WindowStartupLocation="CenterScreen">
+
     <!--<Grid Background="AliceBlue">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2.5*"></ColumnDefinition>
@@ -30,17 +31,21 @@
             <TextBox Name="memeYear" Height="23" Margin="10 0"></TextBox>
         </StackPanel>
     </Grid>-->
-    <Grid>
+    <Grid >
+        <Grid.Background>
+            <ImageBrush ImageSource="images/ana.jpg"></ImageBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Here you can add your meme." HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Georgia" FontSize="30"></TextBlock>
+
+        <TextBlock Text="Here you can add your meme."  Foreground="Maroon" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Georgia" FontSize="30"></TextBlock>
         <StackPanel Grid.Row="1" Orientation="Vertical">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="2.8*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -49,15 +54,15 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Name:" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Georgia" Margin="10"/>
+                <TextBlock Text="Name:" FontSize="20" HorizontalAlignment="Center"  Foreground="Maroon" VerticalAlignment="Center" FontFamily="Georgia" Margin="10"/>
                 <TextBox Name="textBoxAddName" Grid.Column="1" Margin="50 10 50 0" VerticalAlignment="Center" FontFamily="Georgia" />
-                <TextBlock Text="Year:" Grid.Row="1" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Georgia" Margin="10"/>
+                <TextBlock Text="Year:" Grid.Row="1" FontSize="20" HorizontalAlignment="Center"  Foreground="Maroon" VerticalAlignment="Center" FontFamily="Georgia" Margin="10"/>
                 <TextBox Name="textBoxAddYear" Grid.Column="1" Grid.Row="1" MaxLength="5" VerticalAlignment="Center" Margin="50 10 50 0"/>
-                <TextBlock Text="Description:" Grid.Row="2" FontSize="20" HorizontalAlignment="Center" FontFamily="Georgia" VerticalAlignment="Top" Margin="10"/>
-                <TextBox Name="textBoxAddDescription" Grid.Column="1" Grid.Row="2" Height="200" Margin="50 10 50 0" TextWrapping="Wrap" 
+                <TextBlock Text="Description:" Grid.Row="2" FontSize="20"  Foreground="Maroon" HorizontalAlignment="Center" FontFamily="Georgia" Margin="10,10.2,9.6,127.8"/>
+                <TextBox Name="textBoxAddDescription" Grid.Column="1" Grid.Row="2" Height="150" Margin="50 10 50 0" TextWrapping="Wrap" 
                          AcceptsReturn="True" AcceptsTab="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
                          SpellCheck.IsEnabled="True" Language="ru-ru" FontSize="20" FontFamily="Georgia" VerticalAlignment="Center"/>
-                <TextBlock Text="File path" Grid.Row="3" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Georgia" Margin="10"/>
+                <TextBlock Text="File path" Grid.Row="3" FontSize="20"  Foreground="Maroon" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Georgia" Margin="10"/>
                 <TextBox Name="textBoxAddPath" Grid.Column="1" Grid.Row="3" Margin="50 10 50 0" VerticalAlignment="Center"/>
                 <WrapPanel Grid.Row="4"  Grid.Column="1" HorizontalAlignment="Center" Margin="0 10">
                     <Button  Name="buttonAddMemeCancel" MinWidth="60" MinHeight="20" Foreground="White" Margin="10,5,10,5" Content="Cancel" Click="buttonAddMemeCancel_Click"  ></Button>

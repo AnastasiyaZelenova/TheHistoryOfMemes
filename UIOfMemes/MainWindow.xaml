@@ -6,6 +6,19 @@
         xmlns:local="clr-namespace:UIOfMemes"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800"  WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="MyOWN" TargetType="{x:Type Image}">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="200"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Margin" Value="-25"/>
+                    <Setter Property="MinWidth" Value="250"/>
+                    <Setter Property="MinHeight" Value="250"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -39,7 +52,7 @@
                 </ToolTip>
             </ListView.ToolTip>
         </ListView>
-        <ListView Name="listViewMemes"  Grid.Row="1" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Disabled"  Margin="20,30,20,0" MouseDoubleClick="listViewMemes_MouseDoubleClick"  >
+        <ListView Name="listViewMemes"  Grid.Row="1" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Margin="20,30,20,0" MouseDoubleClick="listViewMemes_MouseDoubleClick" >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal"/>
@@ -55,16 +68,16 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <Image Grid.Row="1" Margin="5 10" Source="{Binding ImagePath}"/>
+                        <Image Grid.Row="1" Margin="5 10" Style="{StaticResource MyOWN}" Source="{Binding ImagePath}"/>
                         <TextBlock  HorizontalAlignment="Center" Text="{Binding Name}"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Name="buttonAddGroup" Content="Add group" Foreground="White" Margin="0,50,0,20" MaxHeight="30" Grid.Row="2" IsEnabled="True" MinWidth="100" HorizontalAlignment="Center" ></Button>
+        <Button Name="buttonAddGroup" Content="Add group" Foreground="White" Margin="0,50,0,20" MaxHeight="30" Grid.Row="2" IsEnabled="True" MinWidth="100" HorizontalAlignment="Center" Click="buttonAddGroup_Click" ></Button>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 30"  Grid.Column="1" Grid.Row="2" VerticalAlignment="Top">
-            <Button Name="buttonAddMeme" Content="Add meme" Margin="5" MinHeight="40" MinWidth="70" IsEnabled="True"   Click="buttonAddMeme_Click" ></Button>
-            <Button Name="buttonAddUserMeme" Content="Paint meme" Margin="5" MinHeight="40" IsEnabled="True" MinWidth="70" Click="buttonAddUserMeme_Click" ></Button>
+            <Button Name="buttonAddMeme" Content="Add meme" Margin="5" Foreground="White" MinWidth="100" MaxHeight="30" IsEnabled="True"   Click="buttonAddMeme_Click" ></Button>
+            <Button Name="buttonAddUserMeme" Content="Paint meme" Margin="5" Foreground="White" MinWidth="100" MaxHeight="30" IsEnabled="True" Click="buttonAddUserMeme_Click" ></Button>
             <Button Name="buttonRefresh" Content="Refresh" Margin="5" MinHeight="40" IsEnabled="True" MinWidth="70" Click="buttonRefresh_Click" ></Button>
         </StackPanel>
         <DockPanel Grid.Column="1" Margin="50 50 50 0" >
@@ -72,9 +85,10 @@
             <TextBox x:Name="textBoxSearch" Margin="5,0,0,0"  Height="25"  TextWrapping="Wrap" TextChanged="TextBox_TextChanged"  />
         </DockPanel>
         <DockPanel Grid.Column="1" Margin="0 20 20 60" HorizontalAlignment="Right">
+            <TextBlock Name="textBlockUserName" Grid.Column="1" HorizontalAlignment="Left" Margin="5 0" VerticalAlignment="Center" TextWrapping="Wrap" />
+
             <Image Source="images/exit.png" Height="30" Width="30" ></Image>
-            <Button Name="buttonLogOut"   Content="Log Out" MinWidth="60" MinHeight="20" Click="buttonLogOut_Click"></Button>
+            <Button Name="buttonLogOut" Foreground="White"  Content="Log Out" MinWidth="100" MaxHeight="30" Click="buttonLogOut_Click"></Button>
         </DockPanel>
-        <TextBlock Name="textBlockUserName" Grid.Column="1" HorizontalAlignment="Left" Margin="344,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
     </Grid>
 </Window>

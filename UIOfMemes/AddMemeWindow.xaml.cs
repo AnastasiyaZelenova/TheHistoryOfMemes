@@ -32,7 +32,15 @@ namespace UIOfMemes
 
         private void buttonAddMemeOk_Click(object sender, RoutedEventArgs e)
         {
-
+            Meme meme = new Meme
+            {
+                Name = textBoxAddName.Text,
+                Year = int.Parse(textBoxAddYear.Text),
+                Description = textBoxAddDescription.Text,
+                ImagePath = textBoxAddPath.Text
+            };
+            _repository.AddMeme(meme);
+            Close();
         }
 
         private void buttonAddMemeCancel_Click(object sender, RoutedEventArgs e)

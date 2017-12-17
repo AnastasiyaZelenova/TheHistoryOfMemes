@@ -53,12 +53,6 @@ namespace UIOfMemes
             return Convert.ToBase64String(hash);
         }
 
-        private void Page_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-                buttonPassword_Click(null, null);
-        }
-
         private void buttonPassword_Click(object sender, RoutedEventArgs e)
         {
             var hash = CalculateHash("imcoolgirl");
@@ -107,6 +101,12 @@ namespace UIOfMemes
                 Application.Current.Shutdown();
             if (result == MessageBoxResult.No)
                 return;
+        }
+
+        private void passwordBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                buttonPassword_Click(null, null);
         }
     }
 }
