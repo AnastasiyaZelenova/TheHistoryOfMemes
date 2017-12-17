@@ -55,7 +55,7 @@
         <ListView Name="listViewMemes"  Grid.Row="1" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Margin="20,30,20,0" MouseDoubleClick="listViewMemes_MouseDoubleClick" >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal"/>
+                    <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemContainerStyle>

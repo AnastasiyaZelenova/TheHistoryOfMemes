@@ -15,19 +15,22 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="/images/ana.jpg"></ImageBrush>
+        </Grid.Background>
         <Image Name="imageMeme" Margin="10" Source="{Binding ImagePath}" ></Image>
         <DockPanel Grid.Row="1" Margin="40" >
-            <TextBlock Text="Year:" FontSize="30" Margin="15 0" VerticalAlignment="Center" FontFamily="Georgia"></TextBlock>
-            <TextBlock Name="textBlockMemYear"   VerticalAlignment="Center" FontSize="30" FontFamily="Georgia"></TextBlock>
+            <TextBlock Text="Year:" FontSize="30" Foreground="Maroon" Margin="15 0" VerticalAlignment="Center" FontFamily="Georgia"></TextBlock>
+            <TextBlock Name="textBlockMemYear" Foreground="Maroon"  VerticalAlignment="Center" FontSize="30" FontFamily="Georgia"></TextBlock>
             <Button Name="buttonLikes" MinWidth="100" MaxHeight="30" Margin="15 0 10 0" Click="buttonLikes_Click" >
                 <Image Source="images/redlike.png" MinHeight="30" MinWidth="40"></Image>
             </Button>
-            <TextBlock Name="textBlockLikes" Text="{Binding Path=likes}"  FontSize="30"  Margin="5 10 0 10"  FontFamily="Georgia"></TextBlock>
+            <TextBlock Name="textBlockLikes" Foreground="Maroon" Text="{Binding Path=likes}"  FontSize="30"  Margin="5 10 0 10"  FontFamily="Georgia"></TextBlock>
         </DockPanel>
         <StackPanel Orientation="Vertical" Grid.Column="1" Margin="0 30">
-            <TextBlock Text="Description:"  FontSize="25" FontWeight="Bold" FontFamily="Arial Black" Margin="0 10"></TextBlock>
+            <TextBlock Text="Description:"  FontSize="25" FontFamily="Georgia" Margin="0 10"></TextBlock>
                 <ScrollViewer Height="300" VerticalScrollBarVisibility="Auto">
-                    <TextBlock Name="textBlockDescription" Text="{Binding Description}"  FontFamily="Times New Roman" FontSize="16" TextWrapping="WrapWithOverflow" VerticalAlignment="Bottom" Margin="0 10 40 0"></TextBlock>
+                    <TextBlock Name="textBlockDescription" Text="{Binding Description}" Foreground="Maroon" FontFamily="Times New Roman" FontSize="16" TextWrapping="WrapWithOverflow" VerticalAlignment="Bottom" Margin="0 10 40 0"></TextBlock>
                 </ScrollViewer>
         </StackPanel>
         <DockPanel Grid.Column="1" Grid.Row="1" Margin="0 55 0 0" HorizontalAlignment="Center" VerticalAlignment="Top">
